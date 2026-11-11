@@ -119,11 +119,12 @@ def grid(df, name, limits=None):
 
 
 def dynamics(df, h, name, exposure=False, end=250):
-    fig, axes = plt.subplots(1, 3, figsize=(10, 2.9))
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.7))
     fig.subplots_adjust(wspace=0.48, bottom=0.29)
     response(axes[0], df, "final_mean_total_activity")
     axes[0].axhline(0.3, color=".6", lw=0.6)
-    axes[0].set_ylabel("Mean total catalytic activity")
+    axes[0].set_ylabel("Mean total activity")
+    axes[0].set_xlabel(r"Initial redundancy, $r_0$")
     panel(axes[0], "A", "Catalytic output")
     mask = np.asarray(h["fixed"]) <= end
     x = np.asarray(h["fixed"])[mask] / (100 if exposure else 1)
@@ -163,7 +164,7 @@ def exposure_curves(output, delta=False):
             groups.setdefault((c["mutation_kernel"], c["chi"], n / 8), []).append(y)
     if not groups:
         return
-    fig, axes = plt.subplots(2, 4, figsize=(10, 4.6), sharex=True, sharey=True)
+    fig, axes = plt.subplots(2, 4, figsize=(7.2, 4.1), sharex=True, sharey=True)
     fig.subplots_adjust(wspace=0.15, hspace=0.42, bottom=0.19)
     palette = ["#0072B2", "#56B4E9", "#009E73", "#E69F00", "#CC79A7"]
     for row, kernel in enumerate(["loss_biased", "symmetric"]):
@@ -188,7 +189,7 @@ def exposure_curves(output, delta=False):
                     + (r"$\Delta B_{\mathrm{eff}}$" if delta else r"$B_{\mathrm{eff}}$")
                 )
             if row == 1:
-                ax.set_xlabel("Substitutions per protein")
+                ax.set_xlabel(r"Exposure, $x=n_{\mathrm{fix}}/N$")
             ax.set_xlim(0, 5)
     handles = [Line2D([], [], color=c, label=rf"$r_0={r:g}$") for c, r in zip(palette, R0)]
     fig.legend(handles=handles, loc="lower center", ncol=5, frameon=False)
