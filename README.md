@@ -8,7 +8,7 @@
 
 A computational model of how overlapping catalytic contributions can evolve toward protein-level specialisation under selection on whole-organism reaction performance.
 
-Companion software for **“A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation”**, Alp Duygu and Haziq Moinudeen, manuscript dated September 2026. Publication and preprint identifiers have not been supplied. The banner is an illustrative motif, not simulation data.
+Companion software for **“A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation”**, Alp Duygu and Haziq Moinudeen, manuscript dated September 2026. 
 
 ### Why overlapping activities matter
 
