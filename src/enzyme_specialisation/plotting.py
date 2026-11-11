@@ -142,6 +142,7 @@ def dynamics(df, h, name, exposure=False, end=250):
     axes[2].set_ylabel(r"$B_{\mathrm{eff}}$")
     panel(axes[2], "C", "Absolute breadth")
     for ax in axes[1:]:
+        ax.set_xticks(np.linspace(0, end / 100 if exposure else end, 6))
         ax.set_xlabel("Substitutions per protein" if exposure else "Fixed substitutions")
     legend(fig)
     save(fig, name)
@@ -191,6 +192,7 @@ def exposure_curves(output, delta=False):
             if row == 1:
                 ax.set_xlabel(r"Exposure, $x=n_{\mathrm{fix}}/N$")
             ax.set_xlim(0, 5)
+            ax.set_xticks(np.arange(6))
     handles = [Line2D([], [], color=c, label=rf"$r_0={r:g}$") for c, r in zip(palette, R0)]
     fig.legend(handles=handles, loc="lower center", ncol=5, frameon=False)
     save(fig, "Figure_5_breadth_vs_exposure" + ("_change" if delta else ""))
