@@ -1,4 +1,4 @@
-"""Canonical fixation calculations; original mathematical operations preserved."""
+"""Numerically stable fixation probabilities for origin–fixation dynamics."""
 
 from __future__ import annotations
 

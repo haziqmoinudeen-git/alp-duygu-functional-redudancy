@@ -1,4 +1,4 @@
-"""Deterministic event-by-event comparison to the preserved source."""
+"""Deterministic event comparisons with the reference implementation."""
 
 import hashlib
 import importlib.util

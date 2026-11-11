@@ -58,10 +58,10 @@ Redundancy sweep
 Experimental design
     redundancy x mutation kernel x structural incompatibility
 
-Fast implementation
--------------------
-- Exact finite selection coefficients are retained.
-- Exact origin-fixation hazards are retained.
+Numerical evaluation
+--------------------
+- Finite-effect selection coefficients are calculated from fitness ratios.
+- Event hazards combine mutation origin rates and fixation probabilities.
 - Mutation catalogues are vectorized and cached.
 - Only hazards that can change after a substitution are recomputed.
 - Independent sweep conditions can run in parallel.
@@ -115,7 +115,7 @@ import matplotlib.pyplot as plt
 
 
 # ============================================================
-# REFERENCE PARAMETERS FROM THE EXISTING MODEL
+# MODEL PARAMETERS
 # ============================================================
 
 M_FUNCTIONS = 120
@@ -148,7 +148,7 @@ NEGATIVE_MAGNITUDE_PROBS = np.array(
     dtype=float,
 )
 
-# Symmetric control:
+# Symmetric mutation condition:
 # preserve p0 and the total probability of a non-zero sign, but split
 # gain/loss equally. Use the midpoint of the two reference magnitude
 # distributions so Q_- = Q_+ while preserving the overall effect-size scale.
@@ -2081,7 +2081,7 @@ def run_one_condition(
         else:
             fixed_neutralish += 1
 
-        # Update hazards exactly where dependencies changed.
+        # Refresh selected-protein and overlapping-support loop hazards.
         affected_loop_ids = {
             chosen_loop_id
         }

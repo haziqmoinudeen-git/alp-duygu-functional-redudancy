@@ -1,4 +1,4 @@
-"""Canonical ancestry calculations; original mathematical operations preserved."""
+"""Balanced protein–reaction networks and heterogeneous ancestral activities."""
 
 from __future__ import annotations
 

@@ -1,8 +1,10 @@
 # Reproduction
 
-Run commands from the repository root with Python 3.12 and uv:
+## Environment and commands
 
-```sh
+Run commands from the repository root with uv. Python 3.12.7 and `uv.lock` specify the environment.
+
+```bash
 make install
 make test
 make smoke
@@ -11,16 +13,32 @@ make validate
 make figures
 ```
 
-`uv.lock` pins the environment. For a conventional environment: `python -m pip install -e '.[dev]'` (this does not enforce the lock).
+`make reproduce` executes the paired experiment, validates the data, and generates figures. Completed trajectory files are checked and reused. Conventional installation is also supported with `python -m pip install -e '.[dev]'`; use uv for the locked environment.
 
-`python -m enzyme_specialisation simulate --config configs/paper.yaml --workers 4` runs 200 histories to `max(250,5N)`. Both stopping-regime config files deliberately run this shared pipeline. Their results have distinct experiment IDs and directories. `--limit 1` supplies a single-condition validation run; it does not represent the full experiment. `configs/extended.yaml` extends to 20 replicates. Replicates 0–4 retain the original full-grid seed registry; 5–19 use SHA-256-derived seeds. Subsetting or reordering the original grid changes its historical condition index, so preserve the paper grid when reproducing original seeds.
+## Experiment configurations
 
-Completed NPZs are validated before skipping. Checkpoints every 25 substitutions contain the full activity and support states, cached hazards, RNG state, counters, and history. Writes use atomic replacement. Restart with the same command and configuration. Loading checkpoints uses pickle: only load trusted local checkpoints. An interrupted interval repeats at most 24 substitutions. Resume currently repeats ancestor setup before restoring the checkpoint; this costs setup time but preserves continuation exactly.
+```bash
+uv run python -m enzyme_specialisation simulate --config configs/paper.yaml --workers 4
+uv run python -m enzyme_specialisation plot --experiment equal_total_250
+uv run python -m enzyme_specialisation plot --experiment equal_exposure_c5
+```
 
-The generation horizon is retained. A run that reaches it before the substitution target is marked incomplete and fails complete-grid validation. Worker count is configurable and capped at half the available CPUs, with a conservative 512 MiB memory allowance per worker and 512 MiB reserve. Available memory is recorded in the manifest. The driver has finite stopping criteria and bounded ancestral construction. Completed-job progress includes elapsed time, ETA, and failures; intermediate substitutions are recoverable from checkpoints. The driver does not automatically retry numerical failures.
+Both endpoint configurations run shared histories to `max(250,5N)` and write separate analysis directories. `--limit 1` selects a single trajectory for a small validation run. `configs/smoke_test.yaml` uses 100 network swaps and two substitutions; `configs/paper.yaml` uses the study parameters. `configs/extended.yaml` increases the replicate count to 20 per cell.
 
-Histories retain every fixed event. Exposure curves use `searchsorted(..., side="right")-1` on a common 201-point grid from 0 to 5: the last observed state at or before each exposure is carried forward. There is no interpolation or invented event. Ribbons show sample standard deviation across trajectories, not confidence intervals or standard errors. Only trajectories reaching exposure 5 contribute.
+## Seeds and parallel execution
 
-Canonical figures use the supplied 250-event CSV and the regenerated reference trajectory when available; the new trajectory-derived 250 endpoints are independently compared to them. The saved every-ten-substitution reference history is independently checked. New histories retain every event.
+Replicates 0–4 use the five-replicate seed registry; replicates 5–19 use SHA-256-derived seeds. Each redundancy/replicate ancestor is shared across mutation kernels and incompatibility values. Evolution seeds identify individual trajectories. Scheduling does not determine seeds. The paper grid order determines the reference condition indices, so use that grid to reproduce the recorded seed assignments.
 
-Completed results and checkpoints carry a fingerprint of the scientific source files. A changed scientific source invalidates cache reuse. The original results generated before fingerprinting were migrated only after scientific tests and full endpoint regression; numerical-array hashes were verified unchanged. `scripts/attest_legacy_outputs.py` documents that one-time migration and is not part of ordinary reproduction.
+Worker count is configurable and capped at half the available CPUs. Memory limits reserve 512 MiB for the parent process and allow approximately 512 MiB per worker. The manifest records available resources. Progress messages give completed trajectories, condition, substitution target, elapsed time, estimated remaining time, and failures.
+
+## Checkpointing
+
+Checkpoints every 25 substitutions contain activity, latent support, cached hazards, RNG state, counters, and history. Restart with the same command and configuration to resume. Atomic replacement protects both checkpoints and completed outputs. Source fingerprints prevent cache reuse after scientific code changes.
+
+An interrupted interval repeats at most 24 substitutions. Resuming performs ancestor setup before restoring the checkpoint state. Checkpoints use pickle and should be loaded only from trusted local runs. A trajectory reaching the $3\times10^{10}$-generation horizon before its substitution target is marked incomplete. Numerical failures are recorded for diagnosis.
+
+## Figure data and exposure alignment
+
+Endpoint tables and complete event histories provide the figure data. The 250-substitution reference table and sampled reference history are numerical comparison fixtures.
+
+Exposure curves use a common 201-point grid from 0 to 5. `searchsorted(..., side="right")-1` selects the latest recorded state at or before each exposure. Ribbons show sample standard deviation across aligned trajectories. The [data dictionary](data_dictionary.md) defines columns, units, and runtime fields; [numerical methods](numerics.md) describe event rates and hazard caching.

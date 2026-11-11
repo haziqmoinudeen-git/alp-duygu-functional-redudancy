@@ -1,4 +1,4 @@
-"""Profile and compare unchanged reference against vectorised expansion evaluation."""
+"""Profile scalar and vectorised expansion evaluation on matched workloads."""
 
 import cProfile
 import importlib.util
@@ -63,7 +63,7 @@ for n, k, chi in [
     Path("reports/benchmark.json").write_text(json.dumps(rows, indent=2))
     print(rows[-1], flush=True)
 Path("reports/performance_benchmark.md").write_text(
-    "# Measured benchmark\n\nThree-substitution workloads including ancestry and catalogue setup. Profile overhead applies to both versions. Peak RSS is cumulative process peak, not isolated per case. No full-trajectory extrapolation is claimed.\n\n"
+    "# Measured benchmark\n\nThree-substitution workloads including ancestry and catalogue setup. Profile overhead applies to both versions. Peak RSS is cumulative process peak, not isolated per case. These timings cover the measured three-substitution workloads.\n\n"
     + "\n".join(
         f"- N={r['N']}, {r['kernel']}, chi={r['chi']}: {r['baseline_seconds']:.3f}s → {r['optimised_seconds']:.3f}s; {r['speedup']:.2f}×; optimised {r['optimised_seconds'] / 3:.3f}s/substitution including setup; peak {r['peak_process_MiB']:.1f} MiB. Final activity identical; all recorded metrics agree to 1e-13 relative tolerance."
         for r in rows

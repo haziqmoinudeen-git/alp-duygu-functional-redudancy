@@ -1,4 +1,4 @@
-"""Time two complete 250-substitution trajectories against the canonical source."""
+"""Time two complete 250-substitution trajectories against the scalar reference implementation."""
 
 import importlib.util
 import json

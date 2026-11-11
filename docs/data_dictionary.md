@@ -2,11 +2,11 @@
 
 ## Reference data
 
-`data/reference/replicate_results.csv` and `sweep_summary.csv` are unchanged source tables. The original manifest and reference history accompany them. Reference seed: ancestry 100000007, evolution 1220000107, N=100, loss-biased, chi=0.325, replicate 0. This reproduces the manuscript's quoted start and endpoint values.
+`data/reference/replicate_results.csv` and `sweep_summary.csv` contain the 250-substitution reference results. The parameter manifest and reference history accompany them. Reference seed: ancestry 100000007, evolution 1220000107, N=100, loss-biased, chi=0.325, replicate 0. The trajectory is used in the catalytic-output and dynamics figures.
 
 ## Paired endpoint tables
 
-`results/paper/{equal_total_250,equal_exposure_c5}/replicate_results.csv` has one row per seed and stopping regime. `experiment_id` prevents mixing the two regimes. `n_proteins`, `M`, `redundancy_r0`, `mutation_kernel`, `chi`, `replicate`, `ancestry_seed`, and `evolution_seed` identify conditions. `fixed_substitutions` is the genuine recorded endpoint; `substitutions_per_protein` is this count divided by N. The copied `max_fixed` configuration field describes the shared trajectory target, not the row's endpoint.
+`results/paper/{equal_total_250,equal_exposure_c5}/replicate_results.csv` has one row per seed and stopping regime. `experiment_id` prevents mixing the two regimes. `n_proteins`, `M`, `redundancy_r0`, `mutation_kernel`, `chi`, `replicate`, `ancestry_seed`, and `evolution_seed` identify conditions. `fixed_substitutions` is the recorded endpoint; `substitutions_per_protein` is this count divided by N. The `max_fixed` configuration field describes the shared trajectory target, not the row's endpoint.
 
 Prefixes `initial_`, `final_`, `delta_` denote ancestor, endpoint, and endpoint minus ancestor. Metrics:
 
@@ -27,6 +27,6 @@ Prefixes `initial_`, `final_`, `delta_` denote ancestor, endpoint, and endpoint 
 
 Each file contains `fixed` (integer substitution count), `time` (effective generations), `mean_breadth`, `mean_strongest_share`, `weakest_P`, `mean_total_activity`, `mean_redundancy`, `mean_nonzero_functions`, `mean_active_functions`, and `mean_latent_loop_support`. All histories begin at zero. `A_final` is the final N×120 activity matrix. `metadata` is JSON with full configuration, final counters, runtime, and completion status. NPZs can be read with `numpy.load(..., allow_pickle=False)`.
 
-Manifest fields include environment, dependency versions, configuration, RNG, and seed registry. No claim of an external data archive is made. Compact publication data and figures are included locally; unrelated research datasets are excluded.
+Manifest fields include environment, dependency versions, configuration, RNG, and seed registry. The repository includes the endpoint tables, complete histories, and publication figures.
 
-Event counters `fixed_support_expansions`, `fixed_beneficial`, `fixed_neutralish`, and `fixed_deleterious` count fixed events to the row endpoint using the original ±1e-12 classification. `counter_source` identifies direct history, final run summary, or the matched original 250-substitution CSV. Intermediate N=40 counter histories were rerun deterministically and compared exactly to their previously saved activity/metric histories. `effective_generations` is the actual recorded time at the endpoint.
+Event counters `fixed_support_expansions`, `fixed_beneficial`, `fixed_neutralish`, and `fixed_deleterious` count fixed events to the row endpoint using a ±1e-12 classification. `counter_source` identifies direct history, final run summary, or the matched original 250-substitution CSV. `effective_generations` is the actual recorded time at the endpoint.

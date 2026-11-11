@@ -1,4 +1,4 @@
-"""Canonical scientific parameters and configuration, unchanged from the supplied sweep."""
+"""Model parameters and simulation configuration."""
 
 from __future__ import annotations
 

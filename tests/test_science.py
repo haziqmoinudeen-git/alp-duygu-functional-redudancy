@@ -164,5 +164,5 @@ def test_fixation_extremes_and_preserved_boundaries():
     values = m.vectorized_fixation_probability(np.array([-1.0, -1e-14, 0.0, 1e-14, 1.0]), 1000000)
     assert np.isfinite(values).all()
     assert values[0] == 0 and values[2] == 1e-6
-    assert values[1] == 0 and values[3] == 0  # Documented inherited exact-boundary masks.
+    assert values[1] == 0 and values[3] == 0  # Exact-threshold boundary convention.
     np.testing.assert_allclose(values[4], -np.expm1(-2.0), rtol=1e-14)

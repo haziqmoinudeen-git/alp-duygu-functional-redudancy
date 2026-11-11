@@ -1,4 +1,4 @@
-"""Canonical structure calculations; original mathematical operations preserved."""
+"""Loop structural costs and feasibility calculations."""
 
 from __future__ import annotations
 

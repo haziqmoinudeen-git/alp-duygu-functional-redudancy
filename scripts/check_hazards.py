@@ -1,4 +1,4 @@
-"""Diagnose inherited cached expansion hazards without altering the trajectory."""
+"""Compare cached loop hazards with a full recomputation."""
 
 import inspect
 import json
@@ -47,5 +47,5 @@ try:
     model.run_one_condition(cfg)
 finally:
     sys.settrace(None)
-Path("reports/hazard_cache_audit.json").write_text(json.dumps(report, indent=2))
+Path("reports/hazard_cache_comparison.json").write_text(json.dumps(report, indent=2))
 print(report)

@@ -1,4 +1,4 @@
-"""Canonical catalogue calculations; original mathematical operations preserved."""
+"""Finite loop-local mutation catalogues and event probabilities."""
 
 from __future__ import annotations
 

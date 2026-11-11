@@ -1,4 +1,4 @@
-"""Public scientific API; exact defaults and kernels from the publication baseline."""
+"""Public API for the enzyme-specialisation model."""
 
 import numpy as np
 

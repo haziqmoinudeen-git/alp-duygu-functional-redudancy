@@ -1,18 +1,18 @@
 # Scientific model
 
-The canonical source is `data/provenance/original_sweep.py`, checked against manuscript Methods II A–F. The manuscript is titled *A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation*, dated September 2026.
+The model represents a fixed proteome contributing to a shared set of organismal reactions.
 
 For equal protein abundance,
 
 $$R_j=\sum_i a_{ij},\qquad P_j=\frac{R_j}{K_j+R_j},\qquad W=\prod_j P_j^{w_j},\quad w_j=1/M.$$
 
-Activities sum over four loops. Ordinary mutations affect latent loop support; loss to zero never removes support. Each coordinate receives a sign, while a common negative magnitude and a common positive magnitude are drawn for the respective signed coordinates in the enumerated catalogue. The all-zero sign vector is excluded and the catalogue renormalised, exactly as in the supplied implementation.
+Activities sum over four loops. Ordinary mutations affect latent loop support; loss to zero never removes support. Each coordinate receives a sign, while a common negative magnitude and a common positive magnitude are drawn for the respective signed coordinates in the enumerated catalogue. The all-zero sign vector is excluded and the catalogue renormalised.
 
 Loop feasibility is $C=\sum_j L_j+\eta\sum_{j<k}L_jL_k\le1$, with $0\le a_{ij}\le1$. This constraint does not enter fitness directly. $\chi=\eta(k_{ref}-1)a_0/2$, $k_{ref}=4.25$, $a_0=0.02$.
 
-The exact finite-effect selection coefficient is $s=W'/W-1$. Fixation is $1/N_e$ at neutrality and $(1-e^{-2s})/(1-e^{-2N_es})$ otherwise. The original numerical neutral threshold $|s|<10^{-14}$, exponent cutoffs, and underflow handling are retained. No alternate fixation approximation was introduced.
+The exact finite-effect selection coefficient is $s=W'/W-1$. Fixation is $1/N_e$ at neutrality and $(1-e^{-2s})/(1-e^{-2N_es})$ otherwise. Numerical evaluation uses a neutral threshold of $|s|<10^{-14}$ and logarithmic handling of exponentially small probabilities.
 
-| Quantity | Preserved value |
+| Quantity | Value |
 |---|---|
 | Reactions; functions per ancestor | 120; 15 |
 | Loops; support sizes | 4; (5,4,4,4) |
@@ -38,4 +38,4 @@ The ancestor has fixed protein degree and balanced reaction degrees, with normal
 
 Effective breadth is inverse Simpson concentration of within-protein activity shares. Strongest share is the maximum share; effective reaction redundancy is inverse Simpson concentration of between-protein contributions to each reaction. The plotted breadth, share, redundancy, and activity are arithmetic means over proteins or reactions as appropriate; weakest performance is a minimum over reactions.
 
-The symmetric kernel is a mutation condition, **not a neutral evolutionary control**. See the [scientific audit](../reports/scientific_fidelity.md) for implementation discrepancies preserved for fidelity.
+The symmetric kernel is a mutation condition, **not a neutral evolutionary control**. The [numerical methods](numerics.md) describe catalogue conditioning, origin-rate normalisation, fixation boundaries, and hazard caching.

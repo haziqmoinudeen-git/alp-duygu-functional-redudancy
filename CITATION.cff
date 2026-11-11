@@ -10,6 +10,8 @@ authors:
     given-names: Haziq
     affiliation: "UCL Cancer Institute; Elizabeth Garrett Anderson Institute for Women's Health"
 version: 0.1.0
+license: MIT
+repository-code: "https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy"
 preferred-citation:
   type: unpublished
   title: "A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation"
@@ -19,4 +21,4 @@ preferred-citation:
     - family-names: Moinudeen
       given-names: Haziq
   year: 2026
-  notes: "Manuscript dated September 2026; publication and preprint identifiers not supplied."
+  notes: "Manuscript dated September 2026."

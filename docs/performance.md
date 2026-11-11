@@ -1,5 +1,7 @@
-# Performance
+# Computational performance
 
-The baseline profile identifies scalar support-expansion feasibility and fixation calls as major repeated costs. The implementation batches expansion candidates in their original reaction/magnitude order, evaluates structural costs once per magnitude per loop, and vectorises exact selection and fixation calculations. Ordinary catalogues, event sampling, dependency refresh, and RNG consumption are unchanged. No Numba/GPU or new approximation is used.
+Expansion candidates are evaluated in contiguous arrays, with structural costs calculated once per magnitude per loop. Exact finite-effect selection and fixation calculations are vectorised. Mutation catalogues are cached by support size and mutation condition; loop dependencies determine hazard refreshes. Independent trajectories run in separate processes, subject to CPU and memory limits.
 
-See [measured benchmarks](../reports/performance_benchmark.md), [raw measurements](../reports/benchmark.json), and [baseline profile](../reports/profile_baseline.txt). Short benchmarks include initialisation, cached catalogue setup, and profiler overhead. They are not estimates of whole-batch acceleration. Trajectory reuse separately avoids duplicate runs for the two endpoints.
+[Benchmark measurements](../reports/performance_benchmark.md) compare the vectorised and scalar reference implementations on matched workloads. The [raw timings](../reports/benchmark.json) and [profile](../reports/profile_baseline.txt) provide setup and memory details. Short profiled runs include initialisation and catalogue construction. Complete 250-substitution workloads were also timed separately.
+
+Sharing trajectories between the two endpoints requires 82,000 fixed events, compared with 130,000 for separate five-replicate endpoint batches. Checkpointing and validated result reuse support interrupted and extended experiments.

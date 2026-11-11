@@ -1,4 +1,4 @@
-"""Canonical fitness calculations; original mathematical operations preserved."""
+"""Reaction performance and finite-effect organismal selection coefficients."""
 
 from __future__ import annotations
 

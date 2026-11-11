@@ -1,111 +1,118 @@
-<p align="center"><img src="docs/assets/banner.svg" alt="Enzyme Specialisation — functional redundancy, distributed catalytic activity, and evolutionary specialisation" width="100%"></p>
+<p align="center"><img src="docs/assets/banner.svg" alt="Enzyme Specialisation: overlapping catalytic contributions and evolutionary specialisation" width="100%"></p>
 
 <p align="center">
 <a href="pyproject.toml"><img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square"></a>
 <a href="uv.lock"><img alt="Environment locked with uv" src="https://img.shields.io/badge/environment-uv%20locked-007C83?style=flat-square"></a>
-<a href="docs/reproduction.md"><img alt="CPU simulations" src="https://img.shields.io/badge/compute-CPU%20only-526777?style=flat-square"></a>
+<a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-007C83?style=flat-square"></a>
 </p>
 
-A computational model of how overlapping catalytic contributions can evolve toward protein-level specialisation under selection on whole-organism reaction performance.
+# A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation
 
-Companion software for **“A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation”**, Alp Duygu and Haziq Moinudeen, manuscript dated September 2026. 
+**Alp Duygu and Haziq Moinudeen**
 
-### Why overlapping activities matter
+Can selection on overlapping catalytic contributions produce specialised proteins without gene duplication? This project studies that question using stochastic origin–fixation simulations of weak generalist proteins supplying a shared set of organismal reactions.
 
-Promiscuous enzymes contribute weakly to multiple reactions. When several proteins supply the same reaction, the value of an activity change depends on contributions from the rest of the proteome. This model asks whether selection in that shared context can concentrate individual proteins' activities without gene duplication during the trajectories.
+## Scientific framework
 
-Across the supplied 200-run, 250-substitution dataset, all parameter-cell means lose effective breadth and gain strongest-function share. The symmetric mutation condition produces stronger concentration than the loss-biased condition; it is **not a neutral evolutionary control**. Weakest-reaction performance changes less uniformly, and structural incompatibility does not act as a monotonic specialisation pressure. These are model results, not evidence of a universal biochemical mechanism.
+Protein activities contribute to aggregate reaction capacity, which determines reaction performance and organismal fitness:
 
-<p align="center"><img src="figures/previews/Figure_1_specialisation_grid.png" alt="Four panels: breadth, catalytic concentration, weakest reaction performance, and effective reaction redundancy" width="820"></p>
+$$R_j=\sum_i a_{ij},\qquad P_j=\frac{R_j}{K_j+R_j},\qquad W=\prod_j P_j^{w_j},\quad w_j=1/M.$$
 
-### The model
+Each protein's activity profile is the sum of four loop contributions. Mutations act on a loop's latent reaction support and are subject to a local structural incompatibility constraint. An activity that reaches zero remains accessible to later positive mutations. Ancestors have balanced reaction coverage and heterogeneous catalytic profiles; setting $K_j=R_j(0)$ gives $P_j(0)=0.5$.
 
-$$R_j=\sum_i a_{ij},\qquad P_j=\frac{R_j}{K_j+R_j},\qquad W=\prod_j P_j^{w_j}.$$
+The simulations compare loss-biased and symmetric mutation kernels under selection. Protein number remains fixed throughout each trajectory. See the [model description](docs/model.md) for equations, mutation distributions, and summary statistics.
 
-Activity is represented as a sum of loop contributions. Mutations act on latent loop support; an activity reaching zero can later recover. A local incompatibility constraint restricts feasible loop states. Exact finite-effect selection coefficients determine origin–fixation hazards. Ancestors have balanced reaction coverage, heterogeneous catalytic profiles, and $K_j=R_j(0)$, giving $P_j(0)=0.5$.
+## Principal findings
 
-The scientific functions, probabilities, and defaults are preserved from the supplied implementation. Read the [model specification](docs/model.md) and the [scientific fidelity audit](reports/scientific_fidelity.md), including the inherited implementation discrepancies that require author review before public release.
+At 250 fixed substitutions, effective functional breadth decreases and strongest-function share increases across all parameter-cell means. The symmetric mutation kernel produces stronger specialisation than the loss-biased kernel, demonstrating that a biochemical bias toward loss is not required for specialisation in this model. Redundancy and structural incompatibility modulate both protein-level concentration and weakest-reaction performance; their effects depend on the mutation condition and comparison endpoint.
 
-### Reproduce the paper
+<p align="center"><img src="figures/previews/Figure_1_specialisation_grid.png" alt="Changes in functional breadth, strongest-function share, weakest-reaction performance, and effective reaction redundancy" width="820"></p>
 
-Clone or download this repository, then run these commands from its root directory:
+Normalising evolutionary exposure by proteome size changes the apparent redundancy response. At $\chi=0.325$ under loss-biased mutation, mean breadth changes at $r_0=5$ and 15 are approximately −3.10 and −1.67 after 250 substitutions, compared with −2.59 and −3.86 after five substitutions per protein.
 
-```sh
-uv sync --locked --extra dev
+<p align="center"><img src="figures/previews/Figure_5_breadth_vs_exposure.png" alt="Effective breadth versus substitutions per protein across five redundancy conditions, faceted by mutation kernel and structural incompatibility" width="1000"></p>
+
+Figures show replicate means with sample-standard-deviation error bars or bands. The [figure captions](docs/figure_captions.md) describe each panel. Final artwork is available as [PDF, SVG, and 600-dpi PNG](figures/main), with [alternative presentations](figures/alternative) of the parameter response and paired endpoints.
+
+## Simulation design
+
+| Parameter | Values |
+|---|---|
+| Organismal reactions, $M$ | 120 |
+| Proteins, $N$ | 40, 60, 80, 100, 120 |
+| Initial redundancy, $r_0$ | 5, 7.5, 10, 12.5, 15 |
+| Initial functions per protein | 15 |
+| Loops per protein; loop supports | 4; (5, 4, 4, 4) |
+| Initial total activity per protein | 0.30 |
+| Structural incompatibility, $\chi$ | 0, 0.1, 0.325, 1 |
+| Mutation kernels | Loss-biased; symmetric |
+| Replicates | Five per parameter cell |
+
+The 40-cell factorial design comprises 200 seeded trajectories and supplies two paired endpoint comparisons:
+
+| Analysis | Endpoint | Comparison |
+|---|---|---|
+| `equal_total_250` | $n_{\mathrm{fix}}=250$ | Equal total substitutions |
+| `equal_exposure_c5` | $n_{\mathrm{fix}}=5N$ | Equal substitutions per protein |
+
+Each trajectory runs to $\max(250,5N)$ and records both endpoints. Exposure is $x=n_{\mathrm{fix}}/N$. Breadth curves use a common exposure grid through $x=5$, carrying forward the latest recorded state at or before each grid point.
+
+## Installation and reproduction
+
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
+
+```bash
+git clone https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy.git
+cd alp-duygu-functional-redudancy
+make install
 make test
 make smoke
 make reproduce
 ```
 
-`make reproduce` runs or resumes the full five-seed grid, validates the recorded 250-substitution endpoints against the source CSV, and regenerates figures. It skips validated completed trajectories. The included compact results allow `make figures` without rerunning simulations.
+`make reproduce` runs or resumes the five-replicate experiment, validates endpoint data, and generates the figures. Completed trajectories are checked and reused. Python 3.12.7 and the dependency versions in `uv.lock` define the computational environment.
 
-```sh
-# Shared trajectories supply both endpoint analyses.
+```bash
+# Run the paired experiment with a configurable worker count.
 uv run python -m enzyme_specialisation simulate --config configs/paper.yaml --workers 4
-uv run python -m enzyme_specialisation plot --experiment equal_total_250
-uv run python -m enzyme_specialisation plot --experiment equal_exposure_c5
+
+# Regenerate artwork from the recorded data.
+make figures
+
+# Validate the complete dataset.
 make validate
 
-# Optional expansion: retain seeds 0–4 and run only missing trajectories.
+# Extend to 20 replicates per parameter cell.
 uv run python -m enzyme_specialisation simulate --config configs/extended.yaml --workers 4
 ```
 
-See [reproduction details](docs/reproduction.md) for seeds, checkpoints, runtime controls, and conventional pip installation. The quick smoke test uses fewer network swaps and two substitutions; it is not publication data.
+The released dataset contains five replicates per cell. The extended configuration reuses those replicates and adds deterministic seeds. Detailed [reproduction instructions](docs/reproduction.md) cover checkpoints, seed assignment, runtime controls, and individual analyses.
 
-**Completed:** 200 shared histories, 400 paired endpoint rows, 14 passing tests. The five principal saved endpoint metrics reproduce exactly. Full 250-event benchmarks show 8.5–10.3× speedups on the two measured workloads; these are machine-specific measurements.
-
-### Two endpoints, one evolutionary history
-
-| Comparison | Endpoint | Interpretation |
-|---|---|---|
-| `equal_total_250` | $n_{\mathrm{fix}}=250$ | Equal total fixed substitutions |
-| `equal_exposure_c5` | $n_{\mathrm{fix}}=5N$ | Equal fixed substitutions per protein |
-
-Each seeded trajectory runs once to $\max(250,5N)$. Both endpoint states are extracted from that history. The exposure coordinate is $x=n_{\mathrm{fix}}/N$; breadth curves compare all five redundancy conditions at matched exposure through $x=5$. Curves use non-anticipatory stepwise alignment, and bands show sample SD rather than a confidence interval. Full [captions](docs/figure_captions.md) accompany the artwork.
-
-<p align="center"><img src="figures/previews/Figure_5_breadth_vs_exposure.png" alt="Breadth against substitutions per protein, faceted by mutation kernel and incompatibility" width="1000"></p>
-
-At $\chi=0.325$ under loss-biased mutation, the cell-mean breadth changes at $r_0=5$ and 15 are approximately −3.10 and −1.67 at 250 substitutions, compared with −2.59 and −3.86 at exposure 5. The endpoint choice therefore changes the apparent redundancy response. These descriptive comparisons carry no claim of statistical significance.
-
-### Reproducibility and data
-
-- Original source and small reference CSVs are preserved with [SHA-256 provenance](reports/source_inventory.json).
-- Independent ancestry and evolution seeds match the original five-replicate registry. Parallel scheduling does not assign seeds.
-- `uv.lock`, batch manifests, and recorded configurations identify the software environment, RNG, and parameters.
-- Atomic checkpoints preserve activity, latent support, cached hazards, RNG, counters, and history. Tests exercise exact continuation.
-- Compressed histories retain every substitution; CSV summaries keep stopping regimes separate. [Column definitions](docs/data_dictionary.md) explain metrics and units.
-- [Regression validation](reports/regression_validation.md), [benchmarks](reports/performance_benchmark.md), and the [execution report](reports/execution_summary.md) report measured results and limits.
-
-Compact reference data, paired endpoint data, and trajectories are supplied in this repository. No external archive or DOI is claimed. The unrelated research workspace is excluded.
+## Repository structure
 
 ```text
-configs/              Paper, smoke, endpoint, and extended configurations
-src/enzyme_specialisation/
-                      Scientific kernels, simulator, experiments, analysis, CLI
-data/reference/      Supplied publication tables and reference history
-data/provenance/     Unmodified original simulation source
-results/paper/        Paired endpoints and compressed trajectories
-figures/              PDF, SVG, 600-dpi PNG, and README previews
-reports/              Provenance, regression, performance, and execution evidence
-docs/                 Model, data dictionary, captions, reproduction, release checklist
-tests/                Deterministic scientific and checkpoint regressions
+configs/                     Experiment and smoke-test configurations
+src/enzyme_specialisation/   Model, simulation, analysis, plotting, and CLI
+data/reference/             Reference endpoint tables and trajectory
+data/provenance/            Reference implementation for numerical comparison
+results/paper/               Paired endpoint tables and complete histories
+figures/                     Publication artwork and previews
+docs/                        Model, experiments, data dictionary, and reproduction
+reports/                     Numerical validation and performance measurements
+tests/                       Scientific and software tests
 ```
 
-### Authors and citation
+## Code and data availability
 
-**Alp Duygu** — UCL Department of Chemistry.  
-**Haziq Moinudeen** — UCL Elizabeth Garrett Anderson Institute for Women's Health.
+Source code, configurations, reference data, all 200 trajectory histories, and the 400 paired endpoint records are included in this repository. Compressed NPZ histories retain every fixed substitution and final activity matrices; CSV files provide replicate endpoints and cell-level summaries. The [data dictionary](docs/data_dictionary.md) defines each field. Batch manifests record configurations, seeds, RNG, software versions, and runtime information.
 
-The manuscript marks the authors as equal contributors. Use [CITATION.cff](CITATION.cff) for the software and manuscript metadata. No DOI, ORCID, funding, or acceptance status has been inferred.
+The [validation results](reports/regression_validation.md) and [performance measurements](reports/performance_benchmark.md) accompany the dataset. Numerical algorithms and their conventions are documented alongside the [model](docs/model.md).
 
-### Release status and licence
+## Citation and licence
 
-### Release status and licence
+Please cite **Alp Duygu and Haziq Moinudeen, “A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation.”** Machine-readable software and manuscript citation metadata are provided in [CITATION.cff](CITATION.cff).
 
-The publication code, five-seed simulation results, and figure exports are included in this repository.
+Alp Duygu — UCL Department of Chemistry.<br>
+Haziq Moinudeen — UCL Elizabeth Garrett Anderson Institute for Women's Health.
 
-**This project is released under the MIT License**, permitting reuse, modification, distribution, and incorporation into other projects, subject to the licence terms. See the [LICENSE](https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy/blob/main/LICENSE) file for details.
-
-The [release checklist](https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy/blob/main/docs/release_checklist.md) documents scientific validation and publication metadata. The [GitHub publishing guide](https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy/blob/main/docs/publishing.md) provides reproducibility and repository maintenance instructions.
-
-For academic use, please cite the accompanying publication.
+This project is distributed under the [MIT License](LICENSE).

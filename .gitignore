@@ -8,8 +8,8 @@ __pycache__/
 results/smoke/
 reports/*.log
 
-# Local audit, build products, editors, and private credentials
-.release-audit/
+# Local working files, build products, editors, and credentials
+.local/
 .env
 .env.*
 !.env.example

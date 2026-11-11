@@ -228,7 +228,7 @@
   "cpu_count": 6,
   "available_memory_bytes": 21428535296,
   "git_commit": "2a7fc90a7216c117cbf2a1eb0d0d00eebb179a53",
-  "scientific_fingerprint": "520d97e071ad59e91543bfeb12de8ed38ff13850a3b8ba8b62d4645ff3e8a8f6",
+  "scientific_fingerprint": "2b51b5f4af449d0e2720df6a52929aba8c8d229f2cdc2193980f60d2d7de8e49",
   "requested_workers": 2,
   "effective_workers": 2,
   "rng": "numpy.PCG64",

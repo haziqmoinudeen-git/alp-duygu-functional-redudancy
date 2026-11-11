@@ -1,4 +1,4 @@
-"""Canonical metrics calculations; original mathematical operations preserved."""
+"""Protein breadth, catalytic concentration, and reaction redundancy metrics."""
 
 from __future__ import annotations
 

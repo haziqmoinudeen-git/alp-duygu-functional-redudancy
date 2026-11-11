@@ -1,1 +1,11 @@
-Please include the configuration, command, Python version, relevant manifest, expected behavior, and minimal reproducible failure. For scientific discrepancies, identify the manuscript equation and source behavior. Do not include unrelated private data.
+## Question or problem
+
+Describe the scientific question, unexpected behavior, or proposed improvement.
+
+## Reproduction
+
+Include the command, configuration, Python version, and relevant manifest. For a numerical comparison, identify the equation, metric, or dataset involved.
+
+## Expected and observed results
+
+Provide a minimal example and relevant output.
