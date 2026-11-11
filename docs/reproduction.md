@@ -21,4 +21,4 @@ The generation horizon is retained. A run that reaches it before the substitutio
 
 Histories retain every fixed event. Exposure curves use `searchsorted(..., side="right")-1` on a common 201-point grid from 0 to 5: the last observed state at or before each exposure is carried forward. There is no interpolation or invented event. Ribbons show sample standard deviation across trajectories, not confidence intervals or standard errors. Only trajectories reaching exposure 5 contribute.
 
-Canonical figures use the supplied 250-event CSV and reference history; the new trajectory-derived 250 endpoints are independently compared to them. Existing reference history is sampled every ten substitutions. New histories retain every event.
+Canonical figures use the supplied 250-event CSV and the regenerated reference trajectory when available; the new trajectory-derived 250 endpoints are independently compared to them. The saved every-ten-substitution reference history is independently checked. New histories retain every event.

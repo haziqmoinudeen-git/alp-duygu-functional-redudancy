@@ -145,6 +145,7 @@ def run(config, workers=None, limit=None):
     )
     start = time.perf_counter()
     failures = []
+    cached = 0
     with ProcessPoolExecutor(
         max_workers=min(workers or config["workers"], max(1, (os.cpu_count() or 2) // 2), len(jobs))
     ) as pool:
@@ -153,6 +154,9 @@ def run(config, workers=None, limit=None):
             cfg = pending[f]
             try:
                 name, seconds, status = f.result()
+                cached += int(status == "cached")
+                if status == "incomplete":
+                    failures.append({"id": name, "error": "Stopping target not reached"})
                 elapsed = time.perf_counter() - start
                 print(
                     f"{done}/{len(jobs)} {name} fixed={cfg.max_fixed} {status} {seconds:.1f}s elapsed={elapsed:.1f}s ETA={elapsed * (len(jobs) - done) / done:.1f}s failures={len(failures)}",
@@ -163,9 +167,18 @@ def run(config, workers=None, limit=None):
                 print(f"FAILED {failures[-1]}", flush=True)
     atomic_json(
         output / "execution.json",
-        {"elapsed_seconds": time.perf_counter() - start, "failures": failures},
+        {
+            "elapsed_seconds": time.perf_counter() - start,
+            "failures": failures,
+            "cached_trajectories": cached,
+            "requested_workers": workers or config["workers"],
+        },
     )
     aggregate(output, config["exposure"])
+    if failures:
+        raise RuntimeError(
+            f"{len(failures)} trajectories failed or stopped early; see execution.json"
+        )
 
 
 def aggregate(output, exposure=5):

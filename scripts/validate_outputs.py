@@ -40,6 +40,28 @@ for cfg in complete:
             maxdiff = max(maxdiff, d)
             if not np.isclose(h[key][250], r[col], rtol=1e-11, atol=1e-12):
                 errors.append({"id": identifier(cfg), "metric": key, "difference": d})
+ref_path = root / "trajectories/N100_loss_biased_chi0.325_rep000.npz"
+if ref_path.exists():
+    history = pd.read_csv("data/reference/reference_history.csv")
+    with np.load(ref_path) as h:
+        for key in history:
+            np.testing.assert_allclose(
+                h[key][history.fixed.to_numpy(dtype=int)],
+                history[key].to_numpy(),
+                rtol=1e-12,
+                atol=1e-12,
+            )
+for experiment in ["equal_total_250", "equal_exposure_c5"]:
+    path = root / experiment / "replicate_results.csv"
+    if path.exists():
+        table = pd.read_csv(path)
+        assert len(table) == len(complete)
+        assert table.experiment_id.eq(experiment).all()
+        assert (
+            table.fixed_beneficial + table.fixed_neutralish + table.fixed_deleterious
+            == table.fixed_substitutions
+        ).all()
+        assert table.counter_source.notna().all()
 result = {
     "complete": len(complete),
     "expected": len(jobs),

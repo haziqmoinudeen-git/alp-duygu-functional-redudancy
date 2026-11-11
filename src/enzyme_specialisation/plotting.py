@@ -71,13 +71,13 @@ def response(ax, df, key):
     ax.set_xlabel(r"Initial reaction redundancy, $r_0$")
 
 
-def legend(fig):
+def legend(fig, ncol=6):
     handles = [Line2D([], [], color=c, label=rf"$\chi={x:g}$") for x, c in zip(CHIS, COLORS)]
     handles += [
         Line2D([], [], color="#333333", marker=m, ls=s, label=k)
         for k, m, s in [("Loss-biased", "o", "-"), ("Symmetric", "s", "--")]
     ]
-    fig.legend(handles=handles, loc="lower center", ncol=6, frameon=False, fontsize=7)
+    fig.legend(handles=handles, loc="lower center", ncol=ncol, frameon=False, fontsize=7)
 
 
 def grid(df, name, limits=None):
@@ -192,6 +192,7 @@ def exposure_curves(output, delta=False):
 def alternatives(a, b=None):
     frames = [("250", a)] + ([("5N", b)] if b is not None else [])
     fig, axes = plt.subplots(len(frames), 2, figsize=(7, 2.7 * len(frames)), squeeze=False)
+    fig.subplots_adjust(hspace=0.65, wspace=0.45, right=0.84, bottom=0.13, top=0.92)
     lo = min(df.delta_mean_breadth.min() for _, df in frames)
     for row, (label, df) in enumerate(frames):
         for col, kernel in enumerate(["loss_biased", "symmetric"]):
@@ -207,9 +208,11 @@ def alternatives(a, b=None):
             ax.set_xlabel(r"$r_0$")
             ax.set_ylabel(r"$\chi$")
             panel(ax, chr(65 + row * 2 + col), f"{kernel.replace('_', ' ')} · {label}")
-    fig.colorbar(im, ax=axes.ravel().tolist(), label=r"$\Delta B_{\mathrm{eff}}$", shrink=0.7)
+    cax = fig.add_axes([0.89, 0.23, 0.025, 0.54])
+    fig.colorbar(im, cax=cax, label=r"$\Delta B_{\mathrm{eff}}$")
     save(fig, "Alternative_A_response_heatmaps", "figures/alternative")
-    fig, ax = plt.subplots(figsize=(3.7, 3.2))
+    fig, ax = plt.subplots(figsize=(4.4, 3.8))
+    fig.subplots_adjust(bottom=0.30)
     for chi, color in zip(CHIS, COLORS):
         for kernel, marker in [("loss_biased", "o"), ("symmetric", "s")]:
             sub = (
@@ -220,6 +223,7 @@ def alternatives(a, b=None):
             ax.scatter(-sub.delta_mean_breadth, sub.delta_weakest_P, c=color, marker=marker, s=20)
     ax.set_xlabel(r"Specialisation, $-\Delta B_{\mathrm{eff}}$")
     ax.set_ylabel(r"$\Delta P_{\min}$")
+    legend(fig, 3)
     save(fig, "Alternative_B_specialisation_coverage", "figures/alternative")
     if b is not None:
         keys = [
@@ -231,16 +235,26 @@ def alternatives(a, b=None):
             "evolution_seed",
         ]
         paired = a.merge(b, on=keys, suffixes=("_250", "_5N"), validate="one_to_one")
-        fig, ax = plt.subplots(figsize=(3.7, 3.2))
+        fig, ax = plt.subplots(figsize=(4.4, 3.8))
+        fig.subplots_adjust(bottom=0.30)
         for chi, color in zip(CHIS, COLORS):
-            sub = paired[paired.chi == chi]
-            ax.scatter(
-                sub.delta_mean_breadth_250, sub.delta_mean_breadth_5N, s=10, color=color, alpha=0.5
-            )
+            for kernel, marker in [("loss_biased", "o"), ("symmetric", "s")]:
+                sub = paired[(paired.chi == chi) & (paired.mutation_kernel == kernel)]
+                ax.scatter(
+                    sub.delta_mean_breadth_250,
+                    sub.delta_mean_breadth_5N,
+                    s=10,
+                    color=color,
+                    marker=marker,
+                    alpha=0.5,
+                )
         bounds = [min(ax.get_xlim()[0], ax.get_ylim()[0]), 0]
         ax.plot(bounds, bounds, color=".6", lw=0.6)
         ax.set_xlabel(r"$\Delta B_{\mathrm{eff}}^{(250)}$")
         ax.set_ylabel(r"$\Delta B_{\mathrm{eff}}^{(5N)}$")
+        ax.set_xlim(bounds)
+        ax.set_ylim(bounds)
+        legend(fig, 3)
         save(fig, "Alternative_C_paired_endpoints", "figures/alternative")
 
 
@@ -271,7 +285,12 @@ def plot_all(output, experiment="all"):
                 limits[key] = (lo - pad, hi + pad)
         if experiment in {"all", "equal_total_250"}:
             grid(a, "Figure_1_specialisation_grid", limits)
-            dynamics(a, h, "Figure_2_output_and_dynamics")
+            ref = Path(output) / "trajectories/N100_loss_biased_chi0.325_rep000.npz"
+            if ref.exists():
+                with np.load(ref) as z:
+                    dynamics(a, z, "Figure_2_output_and_dynamics")
+            else:
+                dynamics(a, h, "Figure_2_output_and_dynamics")
         if experiment in {"all", "equal_exposure_c5"}:
             if b is None:
                 raise ValueError(
