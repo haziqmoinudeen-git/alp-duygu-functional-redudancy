@@ -1,0 +1,1 @@
+Please include the configuration, command, Python version, relevant manifest, expected behavior, and minimal reproducible failure. For scientific discrepancies, identify the manuscript equation and source behavior. Do not include unrelated private data.

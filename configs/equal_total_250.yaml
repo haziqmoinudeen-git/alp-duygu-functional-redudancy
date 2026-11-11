@@ -1,0 +1,11 @@
+replicates: 5
+workers: 2
+base_seed: 7
+exposure: 5
+network_swaps: 50000
+max_generations: 30000000000.0
+redundancies: [5, 7.5, 10, 12.5, 15]
+kernels: ['loss_biased', 'symmetric']
+chis: [0, 0.1, 0.325, 1]
+smoke_fixed: 0
+output: results/paper

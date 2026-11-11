@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using this research software."
+type: software
+title: "Enzyme Specialisation"
+authors:
+  - family-names: Duygu
+    given-names: Alp
+    affiliation: "UCL Department of Chemistry"
+  - family-names: Moinudeen
+    given-names: Haziq
+    affiliation: "UCL Cancer Institute; Elizabeth Garrett Anderson Institute for Women's Health"
+version: 0.1.0
+preferred-citation:
+  type: unpublished
+  title: "A Minimal Model of Functional Redundancy as a Route to Enzyme Specialisation"
+  authors:
+    - family-names: Duygu
+      given-names: Alp
+    - family-names: Moinudeen
+      given-names: Haziq
+  year: 2026
+  notes: "Manuscript dated September 2026; publication and preprint identifiers not supplied."

@@ -1,0 +1,22 @@
+[project]
+name = "enzyme-specialisation"
+version = "0.1.0"
+description = "Reproducible origin–fixation simulations of enzyme specialisation"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0", "pandas>=2.2", "matplotlib>=3.9", "pyyaml>=6"]
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.9"]
+[project.scripts]
+enzyme-specialisation = "enzyme_specialisation.cli:main"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+[tool.ruff.lint.per-file-ignores]
+"src/enzyme_specialisation/model.py" = ["F401", "E402"]

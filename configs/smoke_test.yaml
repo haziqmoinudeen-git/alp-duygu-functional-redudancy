@@ -1,0 +1,11 @@
+replicates: 1
+workers: 2
+base_seed: 7
+exposure: 5
+network_swaps: 100
+max_generations: 30000000000.0
+redundancies: [5]
+kernels: ['loss_biased']
+chis: [0.325]
+smoke_fixed: 2
+output: results/smoke

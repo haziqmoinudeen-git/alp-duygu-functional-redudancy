@@ -1,0 +1,30 @@
+{
+  "preset": "paper",
+  "jobs": 6,
+  "redundancies": [
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0
+  ],
+  "chis": [
+    0.0,
+    0.1,
+    0.325,
+    1.0
+  ],
+  "kernels": [
+    "loss_biased",
+    "symmetric"
+  ],
+  "replicates": 5,
+  "max_fixed": 250,
+  "max_generations": 30000000000.0,
+  "ancestor_alpha": 8.0,
+  "network_swaps": 50000,
+  "Ne": 1000000,
+  "u_loop": 1e-08,
+  "n_conditions": 200,
+  "reference_chi_for_eta10": 0.325
+}
