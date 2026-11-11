@@ -100,4 +100,12 @@ The manuscript marks the authors as equal contributors. Use [CITATION.cff](CITAT
 
 ### Release status and licence
 
-The publication code, five-seed results, and figure exports are included. **No open-source licence has been authorised.** The [rights notice](LICENSE) grants no additional permissions; author approval is required before public release. The [release checklist](docs/release_checklist.md) also records scientific audit items and publication metadata still requiring review. See the [GitHub publishing guide](docs/publishing.md) for local checks, the suggested About description and topics, and manual publication commands.
+### Release status and licence
+
+The publication code, five-seed simulation results, and figure exports are included in this repository.
+
+**This project is released under the MIT License**, permitting reuse, modification, distribution, and incorporation into other projects, subject to the licence terms. See the [LICENSE](https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy/blob/main/LICENSE) file for details.
+
+The [release checklist](https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy/blob/main/docs/release_checklist.md) documents scientific validation and publication metadata. The [GitHub publishing guide](https://github.com/haziqmoinudeen-git/alp-duygu-functional-redudancy/blob/main/docs/publishing.md) provides reproducibility and repository maintenance instructions.
+
+For academic use, please cite the accompanying publication.
