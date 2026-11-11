@@ -28,7 +28,7 @@ The scientific functions, probabilities, and defaults are preserved from the sup
 
 ### Reproduce the paper
 
-Download or clone this repository, then enter its root directory. No GitHub URL is supplied here because no public remote has been established.
+Clone or download this repository, then run these commands from its root directory:
 
 ```sh
 uv sync --locked --extra dev
@@ -100,4 +100,4 @@ The manuscript marks the authors as equal contributors. Use [CITATION.cff](CITAT
 
 ### Release status and licence
 
-This is a local research repository prepared for review. **No open-source licence has been authorised.** The [rights notice](LICENSE) grants no additional permissions; author approval is required before public release. The [release checklist](docs/release_checklist.md) also records scientific audit items and publication metadata still requiring review. No private repository has been published.
+The publication code, five-seed results, and figure exports are included. **No open-source licence has been authorised.** The [rights notice](LICENSE) grants no additional permissions; author approval is required before public release. The [release checklist](docs/release_checklist.md) also records scientific audit items and publication metadata still requiring review. See the [GitHub publishing guide](docs/publishing.md) for local checks, the suggested About description and topics, and manual publication commands.

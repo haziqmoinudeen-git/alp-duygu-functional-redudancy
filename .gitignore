@@ -7,3 +7,20 @@ __pycache__/
 *.checkpoint
 results/smoke/
 reports/*.log
+
+# Local audit, build products, editors, and private credentials
+.release-audit/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+*.swp
+*~
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/
