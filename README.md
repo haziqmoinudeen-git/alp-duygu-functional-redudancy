@@ -94,7 +94,7 @@ tests/                Deterministic scientific and checkpoint regressions
 ### Authors and citation
 
 **Alp Duygu** — UCL Department of Chemistry.  
-**Haziq Moinudeen** — UCL Cancer Institute, WE CARE Centre; Elizabeth Garrett Anderson Institute for Women's Health.
+**Haziq Moinudeen** — UCL Elizabeth Garrett Anderson Institute for Women's Health.
 
 The manuscript marks the authors as equal contributors. Use [CITATION.cff](CITATION.cff) for the software and manuscript metadata. No DOI, ORCID, funding, or acceptance status has been inferred.
 
