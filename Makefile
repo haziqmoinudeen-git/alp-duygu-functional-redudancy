@@ -1,3 +1,5 @@
+.PHONY: install test smoke reproduce figures validate extended
+
 install:
 	uv sync --locked --extra dev
 

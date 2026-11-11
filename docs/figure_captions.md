@@ -7,3 +7,5 @@
 5. Mean effective breadth versus fixed substitutions divided by N. Rows indicate mutation kernel, columns chi, line colours initial redundancy. Bands are ± sample SD, five seeds per complete cell. A common 201-point exposure grid uses last-observation-carried-forward alignment; no interpolation is used. The change version subtracts each trajectory's ancestor before averaging.
 
 Alternative A shows cell-mean breadth changes as heatmaps, sharing one colour scale. B shows cell-mean specialisation and weakest-performance change at 250 substitutions; it implies no causal estimate. C pairs the two endpoints by the same condition and seeds; the diagonal denotes equality.
+
+Export-specific replicate counts are generated in [figures/captions.md](../figures/captions.md). The completed primary experiment uses five per cell; extended exports use the actual paired replicate count.

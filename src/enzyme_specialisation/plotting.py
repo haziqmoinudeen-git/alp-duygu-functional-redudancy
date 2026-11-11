@@ -26,6 +26,7 @@ RC = {
     "ytick.major.width": 0.6,
     "lines.linewidth": 1.1,
     "svg.fonttype": "none",
+    "svg.hashsalt": "enzyme-specialisation-v1",
     "pdf.fonttype": 42,
     "savefig.facecolor": "white",
 }
@@ -35,7 +36,12 @@ def save(fig, name, folder="figures/main"):
     folder = Path(folder)
     folder.mkdir(parents=True, exist_ok=True)
     for ext in ["pdf", "svg", "png"]:
-        fig.savefig(folder / f"{name}.{ext}", dpi=600, bbox_inches="tight")
+        metadata = (
+            {"CreationDate": None, "ModDate": None}
+            if ext == "pdf"
+            else ({"Date": None} if ext == "svg" else {})
+        )
+        fig.savefig(folder / f"{name}.{ext}", dpi=600, bbox_inches="tight", metadata=metadata)
     preview = Path("figures/previews")
     preview.mkdir(exist_ok=True)
     fig.savefig(preview / f"{name}.png", dpi=150, bbox_inches="tight")
@@ -202,14 +208,24 @@ def alternatives(a, b=None):
                 .reindex(index=CHIS, columns=R0)
             )
             ax = axes[row, col]
-            im = ax.imshow(matrix, cmap="cividis", vmin=lo, vmax=0, aspect="auto")
+            im = ax.pcolormesh(
+                np.arange(6) - 0.5,
+                np.arange(5) - 0.5,
+                matrix.to_numpy(),
+                cmap="cividis",
+                vmin=lo,
+                vmax=0,
+                rasterized=False,
+            )
+            ax.invert_yaxis()
             ax.set_xticks(range(5), R0)
             ax.set_yticks(range(4), CHIS)
             ax.set_xlabel(r"$r_0$")
             ax.set_ylabel(r"$\chi$")
             panel(ax, chr(65 + row * 2 + col), f"{kernel.replace('_', ' ')} · {label}")
     cax = fig.add_axes([0.89, 0.23, 0.025, 0.54])
-    fig.colorbar(im, cax=cax, label=r"$\Delta B_{\mathrm{eff}}$")
+    colorbar = fig.colorbar(im, cax=cax, label=r"$\Delta B_{\mathrm{eff}}$")
+    colorbar.solids.set_rasterized(False)
     save(fig, "Alternative_A_response_heatmaps", "figures/alternative")
     fig, ax = plt.subplots(figsize=(4.4, 3.8))
     fig.subplots_adjust(bottom=0.30)
@@ -263,6 +279,9 @@ def plot_all(output, experiment="all"):
         raise ValueError(f"Unknown experiment: {experiment}")
     with plt.rc_context(RC):
         a = pd.read_csv("data/reference/replicate_results.csv")
+        regenerated = Path(output) / "equal_total_250/replicate_results.csv"
+        if regenerated.exists():
+            a = pd.read_csv(regenerated)
         h = pd.read_csv("data/reference/reference_history.csv")
         path = Path(output) / "equal_exposure_c5/replicate_results.csv"
         b = pd.read_csv(path) if path.exists() else None
@@ -283,6 +302,23 @@ def plot_all(output, experiment="all"):
                 hi = max(0.0, values.max())
                 pad = 0.07 * max(hi - lo, 0.01)
                 limits[key] = (lo - pad, hi + pad)
+        caption = Path("figures/captions.md")
+        caption.parent.mkdir(exist_ok=True)
+        sample_a = sorted(
+            a.groupby(["mutation_kernel", "chi", "redundancy_r0"]).size().unique().tolist()
+        )
+        sample_b = (
+            sorted(b.groupby(["mutation_kernel", "chi", "redundancy_r0"]).size().unique().tolist())
+            if b is not None
+            else []
+        )
+        if b is not None and sample_a != sample_b:
+            raise ValueError(
+                "Stopping regimes have unequal replicate counts; complete paired aggregation before plotting"
+            )
+        caption.write_text(
+            f"# Export sample counts\n\n250-substitution analysis: {sample_a} replicates per cell.\n\n5N analysis and exposure bands: {sample_b} replicates per cell.\n\nError bars and bands are sample SD (ddof=1). Full panel descriptions: [captions](../docs/figure_captions.md).\n"
+        )
         if experiment in {"all", "equal_total_250"}:
             grid(a, "Figure_1_specialisation_grid", limits)
             ref = Path(output) / "trajectories/N100_loss_biased_chi0.325_rep000.npz"

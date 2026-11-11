@@ -16,6 +16,7 @@ import pandas as pd
 
 from . import model
 from .io import scientific_fingerprint
+from .resources import available_memory_bytes, worker_limit
 
 METRICS = {
     "mean_breadth": "mean_breadth",
@@ -138,12 +139,11 @@ def run(config, workers=None, limit=None):
             "platform": platform.platform(),
             "architecture": platform.machine(),
             "cpu_count": os.cpu_count(),
+            "available_memory_bytes": available_memory_bytes(),
             "git_commit": commit,
             "scientific_fingerprint": scientific_fingerprint(),
             "requested_workers": workers or config["workers"],
-            "effective_workers": min(
-                workers or config["workers"], max(1, (os.cpu_count() or 2) // 2), len(jobs)
-            ),
+            "effective_workers": worker_limit(workers or config["workers"], len(jobs)),
             "rng": "numpy.PCG64",
             "dependencies": {
                 n: importlib.metadata.version(n)
@@ -156,7 +156,7 @@ def run(config, workers=None, limit=None):
     failures = []
     cached = 0
     with ProcessPoolExecutor(
-        max_workers=min(workers or config["workers"], max(1, (os.cpu_count() or 2) // 2), len(jobs))
+        max_workers=worker_limit(workers or config["workers"], len(jobs))
     ) as pool:
         pending = {pool.submit(worker, c, str(output)): c for c in jobs}
         for done, f in enumerate(as_completed(pending), 1):

@@ -111,3 +111,58 @@ def test_checkpoint(tmp_path):
     np.testing.assert_array_equal(resumed["A_final"], fresh["A_final"])
     for key in fresh["history"]:
         np.testing.assert_array_equal(resumed["history"][key], fresh["history"][key])
+
+
+def test_finite_effect_fitness_ratio():
+    rng = np.random.default_rng(19)
+    R = rng.uniform(0.2, 1.0, 120)
+    K = rng.uniform(0.1, 0.5, 120)
+    support = np.array([2, 19, 50])
+    delta = np.array([[0.01, -0.02, 0.03], [-0.02, 0.01, 0.0]])
+    baseline = np.prod(m.reaction_performance(R, K) ** m.W_FUNCTION)
+    expected = []
+    for d in delta:
+        new = R.copy()
+        new[support] += d
+        expected.append(np.prod(m.reaction_performance(new, K) ** m.W_FUNCTION) / baseline - 1)
+    np.testing.assert_allclose(m.exact_s_for_events(R, K, support, delta), expected, atol=3e-15)
+    assert m.exact_s_single_function(R, K, 2, -R[2]) == -1
+
+
+def test_structural_vector_matches_scalar():
+    values = np.random.default_rng(11).uniform(0.0, 0.5, (19, 5))
+    for chi in [0.0, 0.1, 0.325, 1.0]:
+        eta = m.eta_from_chi(chi)
+        expected = [m.loop_structural_cost(x, eta) for x in values]
+        np.testing.assert_allclose(
+            m.vectorized_loop_structural_cost(values, eta), expected, rtol=1e-14
+        )
+    assert m.eta_from_chi(0.325) == 10.0
+
+
+def test_magnitude_probability_preservation():
+    for kernel, signs, positive, negative in [
+        ("loss_biased", m.LOSS_SIGN_PROBS, m.POSITIVE_MAGNITUDE_PROBS, m.NEGATIVE_MAGNITUDE_PROBS),
+        (
+            "symmetric",
+            m.SYMMETRIC_SIGN_PROBS,
+            m.SYMMETRIC_MAGNITUDE_PROBS,
+            m.SYMMETRIC_MAGNITUDE_PROBS,
+        ),
+    ]:
+        cat = m.mutation_catalogue(kernel, 4)
+        for sign, probability, magnitudes in [(-1, signs[0], negative), (1, signs[2], positive)]:
+            for magnitude, mp in zip(m.MAGNITUDES, magnitudes):
+                mask = np.all(cat["deltas"] == sign * magnitude, axis=1)
+                assert mask.sum() == 1
+                np.testing.assert_allclose(
+                    cat["probs"][mask][0], probability**4 * mp / (1 - signs[1] ** 4), rtol=1e-14
+                )
+
+
+def test_fixation_extremes_and_preserved_boundaries():
+    values = m.vectorized_fixation_probability(np.array([-1.0, -1e-14, 0.0, 1e-14, 1.0]), 1000000)
+    assert np.isfinite(values).all()
+    assert values[0] == 0 and values[2] == 1e-6
+    assert values[1] == 0 and values[3] == 0  # Documented inherited exact-boundary masks.
+    np.testing.assert_allclose(values[4], -np.expm1(-2.0), rtol=1e-14)
