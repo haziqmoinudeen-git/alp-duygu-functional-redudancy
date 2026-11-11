@@ -1,0 +1,28 @@
+[
+  {
+    "N": 40,
+    "kernel": "loss_biased",
+    "chi": 0.0,
+    "substitutions": 250,
+    "baseline_seconds": 47.79682590100856,
+    "optimised_seconds": 4.639683843997773,
+    "baseline_seconds_per_fixation": 0.19118730360403424,
+    "optimised_seconds_per_fixation": 0.018558735375991092,
+    "speedup": 10.301741995382283,
+    "peak_process_MiB": 103.28515625,
+    "identical_final_activity": true
+  },
+  {
+    "N": 120,
+    "kernel": "symmetric",
+    "chi": 1.0,
+    "substitutions": 250,
+    "baseline_seconds": 118.19082081099623,
+    "optimised_seconds": 13.932242730996222,
+    "baseline_seconds_per_fixation": 0.4727632832439849,
+    "optimised_seconds_per_fixation": 0.05572897092398489,
+    "speedup": 8.483258804273289,
+    "peak_process_MiB": 106.5859375,
+    "identical_final_activity": true
+  }
+]

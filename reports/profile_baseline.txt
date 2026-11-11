@@ -1,0 +1,33 @@
+         6010031 function calls (6010029 primitive calls) in 6.993 seconds
+
+   Ordered by: cumulative time
+   List reduced from 121 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.003    0.003    6.993    6.993 data/provenance/original_sweep.py:1359(run_one_condition)
+      188    0.564    0.003    4.561    0.024 data/provenance/original_sweep.py:1457(evaluate_loop_events)
+        1    0.002    0.002    2.427    2.427 data/provenance/original_sweep.py:642(build_initial_architecture)
+        1    1.313    1.313    2.423    2.423 data/provenance/original_sweep.py:435(make_balanced_simple_network)
+    79648    1.215    0.000    2.414    0.000 data/provenance/original_sweep.py:972(vectorized_fixation_probability)
+   357366    0.400    0.000    1.110    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:66(_wrapreduction)
+   185310    0.135    0.000    0.895    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3325(prod)
+   518969    0.714    0.000    0.714    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+    79620    0.226    0.000    0.702    0.000 data/provenance/original_sweep.py:387(loop_structural_cost)
+   172052    0.141    0.000    0.513    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:2342(sum)
+   160505    0.095    0.000    0.430    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:2474(any)
+    79460    0.210    0.000    0.374    0.000 .venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:5593(append)
+   160888    0.164    0.000    0.346    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:86(_wrapreduction_any_all)
+    79674    0.076    0.000    0.319    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:2245(clip)
+    80399    0.043    0.000    0.244    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:48(_wrapfunc)
+    79648    0.179    0.000    0.196    0.000 .venv/lib/python3.12/site-packages/numpy/_core/numeric.py:246(ones_like)
+    79838    0.146    0.000    0.195    0.000 .venv/lib/python3.12/site-packages/numpy/_core/numeric.py:97(zeros_like)
+    79674    0.039    0.000    0.185    0.000 {method 'clip' of 'numpy.ndarray' objects}
+    79460    0.185    0.000    0.185    0.000 data/provenance/original_sweep.py:926(exact_s_single_function)
+    62147    0.135    0.000    0.165    0.000 .venv/lib/python3.12/site-packages/numpy/_core/numeric.py:323(full)
+    79674    0.146    0.000    0.146    0.000 .venv/lib/python3.12/site-packages/numpy/_core/_methods.py:96(_clip)
+    80185    0.055    0.000    0.135    0.000 .venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:1917(ravel)
+   265715    0.125    0.000    0.125    0.000 {built-in method builtins.getattr}
+        2    0.049    0.024    0.103    0.051 data/provenance/original_sweep.py:264(mutation_catalogue)
+    80252    0.078    0.000    0.078    0.000 {built-in method numpy.array}
+
+

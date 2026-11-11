@@ -1,0 +1,9 @@
+{
+  "fixed": 1,
+  "loops": 160,
+  "loops_differing": 107,
+  "max_absolute_hazard_difference": 1.0406204524616943e-14,
+  "total_cached": 5.239633029275651e-07,
+  "total_fresh": 5.23962190934242e-07,
+  "max_relative_hazard_difference": 3.700837237731486e-06
+}

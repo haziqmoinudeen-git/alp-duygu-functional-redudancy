@@ -1,0 +1,399 @@
+{
+  "scientific_fingerprint": "520d97e071ad59e91543bfeb12de8ed38ff13850a3b8ba8b62d4645ff3e8a8f6",
+  "figure_exports": [
+    {
+      "path": "figures/alternative/Alternative_A_response_heatmaps.png",
+      "width": 4019,
+      "height": 3036,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "8dd3eb922eaab0612b598b4c497784adee8e8c4e97325129756540dc2eeb9fc7"
+    },
+    {
+      "path": "figures/alternative/Alternative_B_specialisation_coverage.png",
+      "width": 2573,
+      "height": 2098,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "0521347ac60140d8c191d550dadf5afb279792bca4023339cb1a604058a127e8"
+    },
+    {
+      "path": "figures/alternative/Alternative_C_paired_endpoints.png",
+      "width": 2473,
+      "height": 2122,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "5c23ca6dbb4c9a83ff6b4543bb5e7aa425c7d6ae5dd19a28bc5353e7fb17a68a"
+    },
+    {
+      "path": "figures/main/Figure_1_specialisation_grid.png",
+      "width": 3767,
+      "height": 3082,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "eec486d7ad93fc06c2f2512239d942947f418942a6ce1caa9965f555518ec3c9"
+    },
+    {
+      "path": "figures/main/Figure_2_output_and_dynamics.png",
+      "width": 3772,
+      "height": 1656,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "0b97031f84fae64d339e07c7b1a346c0cf648e0b47f642bbe250318bdd318888"
+    },
+    {
+      "path": "figures/main/Figure_3_equal_exposure_grid.png",
+      "width": 3767,
+      "height": 3082,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "b935cbd261d0cd09bc8e689d3fbd11d781b0892792740b5ad5dbfb16526e6414"
+    },
+    {
+      "path": "figures/main/Figure_4_equal_exposure_dynamics.png",
+      "width": 3718,
+      "height": 1656,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "3502630461aa636c43b727f6feff717f5e19e3cafdeb5713190db5360bdbd0ff"
+    },
+    {
+      "path": "figures/main/Figure_5_breadth_vs_exposure.png",
+      "width": 3812,
+      "height": 2391,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "727d4a61e3fd812c9a288debc10bae73fba603ee0d48e325e0ce40e9cd0339c9"
+    },
+    {
+      "path": "figures/main/Figure_5_breadth_vs_exposure_change.png",
+      "width": 3824,
+      "height": 2391,
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "15e4cb0af5473c058f8d5221469ae1c5ae2e6560a9d295530a7bb87e500c5d6c"
+    },
+    {
+      "path": "figures/previews/Alternative_A_response_heatmaps.png",
+      "width": 1009,
+      "height": 759,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "b7b0a9077b0972d39530dd3e8b8dfa3012811d4c04622c7c454d5801367e25da"
+    },
+    {
+      "path": "figures/previews/Alternative_B_specialisation_coverage.png",
+      "width": 644,
+      "height": 524,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "0a3d6bb5b84229c64578df1205358fd6a70851a59763489af4bd60f3db402ff5"
+    },
+    {
+      "path": "figures/previews/Alternative_C_paired_endpoints.png",
+      "width": 618,
+      "height": 530,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "45e56cd4ee0b247ed39a3d7445973d534a2b46c6bee64b82092d3bc6cb35da42"
+    },
+    {
+      "path": "figures/previews/Figure_1_specialisation_grid.png",
+      "width": 946,
+      "height": 770,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "671840e128c38fb299d987a9cb2e27d1362ae84d7b1dbad48b37040a0c982fef"
+    },
+    {
+      "path": "figures/previews/Figure_2_output_and_dynamics.png",
+      "width": 947,
+      "height": 414,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "e9dcefeded84379d6b564f216291fdf952ffdeab5c82192bc65f71ba1c887f75"
+    },
+    {
+      "path": "figures/previews/Figure_3_equal_exposure_grid.png",
+      "width": 946,
+      "height": 770,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "5d6af061b4f4c9a9b77b5afcee011763e0fd1820a5b283724ff1e99c73719253"
+    },
+    {
+      "path": "figures/previews/Figure_4_equal_exposure_dynamics.png",
+      "width": 932,
+      "height": 414,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "48b914489091d19a2ff2b4fb53d84f728ff875b3807463c886bbbda61651757b"
+    },
+    {
+      "path": "figures/previews/Figure_5_breadth_vs_exposure.png",
+      "width": 955,
+      "height": 597,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "55cee15f5a9a75556b67eb174dcc8472280f677ba4e2a382934e85b09eb750bb"
+    },
+    {
+      "path": "figures/previews/Figure_5_breadth_vs_exposure_change.png",
+      "width": 958,
+      "height": 597,
+      "dpi": [
+        150.01239999999999,
+        150.01239999999999
+      ],
+      "sha256": "8c583ee4e1942c60f35302e9f2e48b746b84e91ef3fb23de608fc6a251f352a2"
+    }
+  ],
+  "input_files": {
+    "data/reference/reference_history.csv": "ab7359788ae44cc0e99b81cac197eecf90790acecb8f3deb1856cc200c3a9a69",
+    "data/reference/replicate_results.csv": "f2f2a33d500521578b6a67c2ac360ccfbcb793b24138e08d70dfc6ffe9eccc6f",
+    "data/reference/sweep_summary.csv": "681558c6322fc44d4bb3d402b0a216ca4362c049cc7c853d86fc01e39c392cce"
+  },
+  "endpoint_files": {
+    "results/paper/equal_exposure_c5/replicate_results.csv": "bfaeb8a69e9480a6177ddc70c2944c7b8fd9bf199470ad99dc6c5eeb824924eb",
+    "results/paper/equal_exposure_c5/sweep_summary.csv": "ebf20115fb74613bbc0e4bb02ed0b794a304f20df3ad54251a874cbda9aaad01",
+    "results/paper/equal_total_250/replicate_results.csv": "6b1dc671e1e5215466c97334554ac6171d89723880eb11522e9a8818c2b1d690",
+    "results/paper/equal_total_250/sweep_summary.csv": "110e17d83ced5cc6eb621ee4a18523ff20b92d932f8c2c83fa70457738d77c37"
+  },
+  "trajectory_files": {
+    "results/paper/trajectories/N100_loss_biased_chi0.1_rep000.npz": "057965ca39ba2511ff2dbe9b164376a0fd30bfb44a288ee8dfcd3345063974a0",
+    "results/paper/trajectories/N100_loss_biased_chi0.1_rep001.npz": "d78cee2413626cc122d9dd415dd3e0152ba741c37cc9dd5c91483aba364cb5bd",
+    "results/paper/trajectories/N100_loss_biased_chi0.1_rep002.npz": "5f8b2e36522101948c5ed027a8ae1cc20c89445c497cb0fc21d2322849eef9f6",
+    "results/paper/trajectories/N100_loss_biased_chi0.1_rep003.npz": "d0e587ba34f33013bd6208dcef125994c8daf58a850d460a9679cadfbdd8edca",
+    "results/paper/trajectories/N100_loss_biased_chi0.1_rep004.npz": "68007dac393ecf090d76b16af182bd84946a84a7fa5c68915744e488182e9854",
+    "results/paper/trajectories/N100_loss_biased_chi0.325_rep000.npz": "707234a3cc3595929d44a7389e4f104995718f7742f132c16b08f4b624e06393",
+    "results/paper/trajectories/N100_loss_biased_chi0.325_rep001.npz": "20540a338ef1168d240fba621d37290d20d27cb4e54f269f50b1f1a5283c4c24",
+    "results/paper/trajectories/N100_loss_biased_chi0.325_rep002.npz": "8386a12015272ec21ccf69ac1ccb3e4a2634b317727bb84651292b1f8e23716c",
+    "results/paper/trajectories/N100_loss_biased_chi0.325_rep003.npz": "8b36e90224055f1d6065413ac91688b7f3a7d2f227315d6d8f62887de9a80254",
+    "results/paper/trajectories/N100_loss_biased_chi0.325_rep004.npz": "a7d26d671d93f1827e76e7bb7c724676c745b51a68905c9086af04f36c1631f4",
+    "results/paper/trajectories/N100_loss_biased_chi0_rep000.npz": "a851cf8f1e7c8dd33407ad892f3c7684b1c09343c5673e057f575dfc5a431523",
+    "results/paper/trajectories/N100_loss_biased_chi0_rep001.npz": "ab9b791f375f4757cea68faef8ec38043295fc5f6c57424cdf38d049585e5e47",
+    "results/paper/trajectories/N100_loss_biased_chi0_rep002.npz": "1a2ef3d91b9e6af35bbee7e2d02c5f9a75d188f0ab5cc0add91af1b81b1d6ecf",
+    "results/paper/trajectories/N100_loss_biased_chi0_rep003.npz": "fbe930aada30f6089fb944af040cd8b0cc81b964c21cd35a13bb052a43ce376c",
+    "results/paper/trajectories/N100_loss_biased_chi0_rep004.npz": "39e970314135ea64e8bc69d9344ad744d026dd0de50cea002955ec57e9ff5417",
+    "results/paper/trajectories/N100_loss_biased_chi1_rep000.npz": "50b378800934a41ad4f37211eb33c654361a86c178ee1faa198a4dfd5a5b83e0",
+    "results/paper/trajectories/N100_loss_biased_chi1_rep001.npz": "be573fe150df497456b4ebc9b14be929cdfb07d678cebb4a9468e363c6b51015",
+    "results/paper/trajectories/N100_loss_biased_chi1_rep002.npz": "f068e0a5f73eee24d1f37f4103aba031ab9d8a56272b288e036e77eddcb2be91",
+    "results/paper/trajectories/N100_loss_biased_chi1_rep003.npz": "6ceb915033eca4dd43869d5e91ccd396cacc9761eefaf2ae0577c27b7fcbbb77",
+    "results/paper/trajectories/N100_loss_biased_chi1_rep004.npz": "3d2e7fe4ba5c415742bef15f4abbd7e7ec3b6c5e3ff0708ab91c42fc389a9cd1",
+    "results/paper/trajectories/N100_symmetric_chi0.1_rep000.npz": "b131d985c97fbfe327e8ee8ffe08cac439a703227396b7419b3c40d99b36822e",
+    "results/paper/trajectories/N100_symmetric_chi0.1_rep001.npz": "a8754fc28edd7f5bc6554e74c86ded2451c9c5bc05ee3be85dd33993f09f8ebb",
+    "results/paper/trajectories/N100_symmetric_chi0.1_rep002.npz": "ec31d64089c02de04d52ce7506d3de21345f6e05179e08f4dbab5ccf2b887e89",
+    "results/paper/trajectories/N100_symmetric_chi0.1_rep003.npz": "ba88ae84084b11cfb08b6d0c09f5f65dd64586ccb95840f5e89e2e18be175b8f",
+    "results/paper/trajectories/N100_symmetric_chi0.1_rep004.npz": "98e1bea5a08839ed443874569558d80a238d4126f45a5830431e862c16059fd5",
+    "results/paper/trajectories/N100_symmetric_chi0.325_rep000.npz": "2b38dd80c64066d37949795e5fcb066f149d5af422cf5ccd8c81a5b7b960666a",
+    "results/paper/trajectories/N100_symmetric_chi0.325_rep001.npz": "c444a16cd46ec0d3ff40731fa7c8f50b9e016842421c3af5f52ed0231e22334b",
+    "results/paper/trajectories/N100_symmetric_chi0.325_rep002.npz": "146ac867d6084f9b0971178add30cf789d02e3567d892ca21166146230172ec8",
+    "results/paper/trajectories/N100_symmetric_chi0.325_rep003.npz": "91c3b95b8b4db2c2670c527d2d20a965acfbdc0ba85dd28258d76ffb652f9aa6",
+    "results/paper/trajectories/N100_symmetric_chi0.325_rep004.npz": "5d012edf3f26b8e31977e29a49d9ccabc1f6ebf8214bbe1cc9f64b5a314fae9d",
+    "results/paper/trajectories/N100_symmetric_chi0_rep000.npz": "b907bc45b1ceccff16b9fa8801cde84e1b4056d9cbf9ceb4e1cfe260ffd307ac",
+    "results/paper/trajectories/N100_symmetric_chi0_rep001.npz": "1149810893386e8e88d09f0a135764a4e19d3e800c79dedd87ba3ba181b94646",
+    "results/paper/trajectories/N100_symmetric_chi0_rep002.npz": "71a3e390453a859f8ffb0e97abd40184e7d37ce37e14abe0fde65521b74ecf11",
+    "results/paper/trajectories/N100_symmetric_chi0_rep003.npz": "fc4442d38be74300b467d0f31570de446cfc3d6c76ab66d1486a0f86cc0073e0",
+    "results/paper/trajectories/N100_symmetric_chi0_rep004.npz": "04e1910b70165366199137e5fb5c46d7e6a24f65572cb2bbe9a8d63cf78aa149",
+    "results/paper/trajectories/N100_symmetric_chi1_rep000.npz": "c48866002c11eb41d0ee7430db65ed51bf1767dbad4cdf7e8ae5213f66f3c957",
+    "results/paper/trajectories/N100_symmetric_chi1_rep001.npz": "6d2ff08feef11f7003596cc6cccf9361a3ee2e707e0192e48ba30f09e87c6391",
+    "results/paper/trajectories/N100_symmetric_chi1_rep002.npz": "666246ec17caef07d25a86271b1bccc60c4969c937a76c95818ffc52074e88e5",
+    "results/paper/trajectories/N100_symmetric_chi1_rep003.npz": "fb0a212971d952c423c775a4ebc27747c284b8d2358eb696cfc6d2cd5db2181a",
+    "results/paper/trajectories/N100_symmetric_chi1_rep004.npz": "53d310452e3c32e76c1eb82edc2dbccc61d47919ac0083ff8494f99c2f682d9b",
+    "results/paper/trajectories/N120_loss_biased_chi0.1_rep000.npz": "07293a007cfbafd69aa7c70803f3eb4bcfd7b6d6ad8a98646a1b75c545916dc0",
+    "results/paper/trajectories/N120_loss_biased_chi0.1_rep001.npz": "d7d7e6199c2fd16f33eb599b55d772012483736169b544060f7acd2021a794a1",
+    "results/paper/trajectories/N120_loss_biased_chi0.1_rep002.npz": "87618ebfadb628bca6827256b817a699f13b979dcccb3c39f1f80d75d3781e22",
+    "results/paper/trajectories/N120_loss_biased_chi0.1_rep003.npz": "af2a6764f6076b11a84a198d58cc144be8d38f8744702d8e2916aa852d7d058b",
+    "results/paper/trajectories/N120_loss_biased_chi0.1_rep004.npz": "b8e829d88fce8a09f5fd681509a827e55c08dabc37f0f15ff8e223f466deb18e",
+    "results/paper/trajectories/N120_loss_biased_chi0.325_rep000.npz": "6383f30ae26bd18854fecd79737142d80e24f60c838e010cad0fecc43e17345d",
+    "results/paper/trajectories/N120_loss_biased_chi0.325_rep001.npz": "5d57931afbc89560ec6b98d4783ac05ce84708c41b66cc30d0fa2d2cd23f691f",
+    "results/paper/trajectories/N120_loss_biased_chi0.325_rep002.npz": "2c996b6b250efc268b7ef530b2d42e977ddca082f24f8041016d8e48dc20c01f",
+    "results/paper/trajectories/N120_loss_biased_chi0.325_rep003.npz": "0cf78b37c7930fb5668063247756666a1642803065b1ed24c032c2161149ff4d",
+    "results/paper/trajectories/N120_loss_biased_chi0.325_rep004.npz": "84fe2550d952b6ea17abbc0a47d7fc594c54c99694146b9dca1474a2f872f3e1",
+    "results/paper/trajectories/N120_loss_biased_chi0_rep000.npz": "697a59ee1d316ac1e956b4d088efb3fd89e9a83f44c80cdc26177f7c69201b9c",
+    "results/paper/trajectories/N120_loss_biased_chi0_rep001.npz": "18e59954a2c7d7f125c4a2b2c4af991c81a62ea84445a1fe96ada0352ccaa10f",
+    "results/paper/trajectories/N120_loss_biased_chi0_rep002.npz": "4d42a3667b3541cc36b304b4e5c71197f72d74ac9ca4682eee88a51b417d3f06",
+    "results/paper/trajectories/N120_loss_biased_chi0_rep003.npz": "48c071f857701155596a8b5965170d0c8b67a77937e27c7de9149d58ade15a7d",
+    "results/paper/trajectories/N120_loss_biased_chi0_rep004.npz": "8eef7b601f3457d2fd631a1a3374fc1d8e97fb19ab8f825aaaf15ac72fded039",
+    "results/paper/trajectories/N120_loss_biased_chi1_rep000.npz": "5f3eebf1fcb7043f7028cfa566c4298e2f3faa6356b6650a6c1ba8d9aa0c8ba4",
+    "results/paper/trajectories/N120_loss_biased_chi1_rep001.npz": "93fad22f6c3267c9d52b404b17add5f9dbe2d7ee39709a06f47f35c3b9589ca0",
+    "results/paper/trajectories/N120_loss_biased_chi1_rep002.npz": "bf095156b27e7fd762f35a0e05f6d6968a8bbf9a5480a6c030bfded266092538",
+    "results/paper/trajectories/N120_loss_biased_chi1_rep003.npz": "11ff20395005c7722f41e10d55af18faba50d31a420d022dd6b51c8f37c22fef",
+    "results/paper/trajectories/N120_loss_biased_chi1_rep004.npz": "0f41d13f5d2b74027d6e0934a9a3b7b7d7a8cf9a219c404c65fd3ad6fa4fdb4d",
+    "results/paper/trajectories/N120_symmetric_chi0.1_rep000.npz": "e0cef447ccdd619d41c8a88a63f4c5028bf07827d9bcb59560f31d47b588a606",
+    "results/paper/trajectories/N120_symmetric_chi0.1_rep001.npz": "dc10f2d27d2d7bf459e2f6140ba9df8f69d188cace4434c89d740e0680b4362d",
+    "results/paper/trajectories/N120_symmetric_chi0.1_rep002.npz": "fb132dd8d380d86ef80d0fbfe49a8f5ad9ff6d4b2eac51ec492de24bfd342580",
+    "results/paper/trajectories/N120_symmetric_chi0.1_rep003.npz": "2b317546b7ba893bed9d60f1b7fa491c261e7e9d787f88c5dc9312d4b552890b",
+    "results/paper/trajectories/N120_symmetric_chi0.1_rep004.npz": "daedfef3f4af1238e5273bc8803497ab32caae585bc7be70ed8d40fe83a5560b",
+    "results/paper/trajectories/N120_symmetric_chi0.325_rep000.npz": "4b05c3654fbcb3fdaf40f1e3b8b3e1a7f6d4aa62a195d65bcde09affe96caaa5",
+    "results/paper/trajectories/N120_symmetric_chi0.325_rep001.npz": "a4f0ffb430f59107c10f2aaaa50ff170f0973ac9d252474715c69dd919f33254",
+    "results/paper/trajectories/N120_symmetric_chi0.325_rep002.npz": "1d65f103c66a3d540c88e2c8308c75d26451987596cb92b40898ff22d83bfe5d",
+    "results/paper/trajectories/N120_symmetric_chi0.325_rep003.npz": "2789d832d67daff17e99a21b899b87a2cf3ff8695e9aedfad941ce9c57552c74",
+    "results/paper/trajectories/N120_symmetric_chi0.325_rep004.npz": "327c1f80172b2be94b4967f83b4a55402a4317025e85cd913b5d8479a7175756",
+    "results/paper/trajectories/N120_symmetric_chi0_rep000.npz": "59419569d29f5309458545f16f488d8bf8233b9f1055bfe14e774a5abd522061",
+    "results/paper/trajectories/N120_symmetric_chi0_rep001.npz": "3d21d1fa3886d276b0563813c62ada64993e6892204edc31c7a8defb614bfca4",
+    "results/paper/trajectories/N120_symmetric_chi0_rep002.npz": "417b8e43a506bad7d641f9fd4d0dc5acf9baea39fcba62ffa116fd6013e874a8",
+    "results/paper/trajectories/N120_symmetric_chi0_rep003.npz": "17ae4007129055d40ed05993ec098da21041c1ad477e182d956deae54c33c4db",
+    "results/paper/trajectories/N120_symmetric_chi0_rep004.npz": "6b1e21c276702eb2ba480d2022649f782c05349db52e4ddc08ae866b8f448816",
+    "results/paper/trajectories/N120_symmetric_chi1_rep000.npz": "95b6de69687b00d7789b0ee7d2146921d497f75c7ff958366b0cecc520be9528",
+    "results/paper/trajectories/N120_symmetric_chi1_rep001.npz": "c80815a3e8221e243208a3da15da5cb06f586f7b5fa4f75328bd2e287f5da282",
+    "results/paper/trajectories/N120_symmetric_chi1_rep002.npz": "55d6b356b41b0b591797ce30e1719144baa094d1b28b356d621e89f3c1152dfc",
+    "results/paper/trajectories/N120_symmetric_chi1_rep003.npz": "692baea55db562bdaadcc252d2df21f20176094e8d13f2b28f53f04003dad350",
+    "results/paper/trajectories/N120_symmetric_chi1_rep004.npz": "21e2300969bbbd9d4123d58360aeabe32917fdbb61c8daaca9ac72617e9fee4b",
+    "results/paper/trajectories/N40_loss_biased_chi0.1_rep000.npz": "2a3c8f8bf08c7c6b0606bec53a50083e8e703f30a52bf3b1c5f5f9baea64a330",
+    "results/paper/trajectories/N40_loss_biased_chi0.1_rep001.npz": "19e8fead77701385a1646e03ee06f2382d43366c13b9c086852c09c4afc7e5dc",
+    "results/paper/trajectories/N40_loss_biased_chi0.1_rep002.npz": "61013fa56a05d696e82ffe0414eb0372ebbc0fd4de76ea904cb4757f231042f1",
+    "results/paper/trajectories/N40_loss_biased_chi0.1_rep003.npz": "51c9e3755fa76ff49a49c5be53fccbcc31f3919aca6f6e8f11c046c6b8ac8b3a",
+    "results/paper/trajectories/N40_loss_biased_chi0.1_rep004.npz": "e7fd2bb225fde021b879d4045d7727f157bd2b0bf584eca16d449af337a7b600",
+    "results/paper/trajectories/N40_loss_biased_chi0.325_rep000.npz": "ea487368361d7bacff759c17ab911c14e9cbc28e888c313083bcd3868d6b4096",
+    "results/paper/trajectories/N40_loss_biased_chi0.325_rep001.npz": "a8ba579d401fe12176a3399dd63bc7eeaffb69986567ea6b4ea634b70173a6c6",
+    "results/paper/trajectories/N40_loss_biased_chi0.325_rep002.npz": "14fb6fb4dfe73ecef06d118e6fa3a4da85c42c0e4e5778b9dab2dc1a5e63e251",
+    "results/paper/trajectories/N40_loss_biased_chi0.325_rep003.npz": "cf0ed15bb1df74d0cd108ed49fc1950efffd116c871263c6340b46ba753deb75",
+    "results/paper/trajectories/N40_loss_biased_chi0.325_rep004.npz": "bcc01a564c9f55c8f935dc279fad6056c277c616698613f0a6309cc72395c3bb",
+    "results/paper/trajectories/N40_loss_biased_chi0_rep000.npz": "e8f9dfe1a81c96747e31e186e48d28428925eea241d9cff269f1965ff8120de1",
+    "results/paper/trajectories/N40_loss_biased_chi0_rep001.npz": "3418a26f895133bb8c1467b102f6e87ab41a8fbb9ff44f465e603120201d10f2",
+    "results/paper/trajectories/N40_loss_biased_chi0_rep002.npz": "5bb8f353532eee5c1f26aa4cef1210ad843ff0c92c70b89625f8b33b625faeba",
+    "results/paper/trajectories/N40_loss_biased_chi0_rep003.npz": "8798789190c93000b4f0a58e626e9c180f6eebcf3d1d91def5fdbf6ffc046a97",
+    "results/paper/trajectories/N40_loss_biased_chi0_rep004.npz": "ca0857c91be6818af46d273449508fcaa5905dce22d12c09c5a674c4b1a7060c",
+    "results/paper/trajectories/N40_loss_biased_chi1_rep000.npz": "dca4a7a576e58a949b7e840fd897ff44a0b0e70f81f3d585e643499c00c09c83",
+    "results/paper/trajectories/N40_loss_biased_chi1_rep001.npz": "94317d83a0f4b53e67fa24cd858010aec8bb834d82b11304052e901361d23f65",
+    "results/paper/trajectories/N40_loss_biased_chi1_rep002.npz": "7f31903242a7a6fa9a948d98f47500d0be721040b6896f42cca9a41c2021bd10",
+    "results/paper/trajectories/N40_loss_biased_chi1_rep003.npz": "e7daa5360fa4b42dc18c325ed9124411cef9f8e1a36e59918950cc9b571d3e65",
+    "results/paper/trajectories/N40_loss_biased_chi1_rep004.npz": "1080afb63d7ceeebbaf85cb7c49a225088b2b124aae8cc698653347edb88e07e",
+    "results/paper/trajectories/N40_symmetric_chi0.1_rep000.npz": "a809ada2895c18242266f617a3420147d6ad6404c6a6cc628517d6256476911a",
+    "results/paper/trajectories/N40_symmetric_chi0.1_rep001.npz": "b712fcb06b5d3f497987378b63294ac98ba2eaf26dee4099739ecd7e95ed7505",
+    "results/paper/trajectories/N40_symmetric_chi0.1_rep002.npz": "241eec7e800a77c62a09a02a286dee9b2675bd45870e5f86a483e916d877b35e",
+    "results/paper/trajectories/N40_symmetric_chi0.1_rep003.npz": "1d8b1602331f129336b705db1afdd66e8d16ce1ff3ad92fe0093af22f5b81955",
+    "results/paper/trajectories/N40_symmetric_chi0.1_rep004.npz": "57ad3e4da7c1dedddc09eb6fc77bd0bf69b64f54e967413138cbe63b7a798405",
+    "results/paper/trajectories/N40_symmetric_chi0.325_rep000.npz": "e037d644887fe5bc6f4694ae2e734e3959275620b820f61da420a5da356b72e8",
+    "results/paper/trajectories/N40_symmetric_chi0.325_rep001.npz": "40efffcbdbbce96b814e9d29e5c868d5d3ba011d6a8c49e02509afd1a393d74e",
+    "results/paper/trajectories/N40_symmetric_chi0.325_rep002.npz": "ddf2790cdee6cda6eefe26493e0113c60a7e38615ef67f530b6d3a3fce5dabfe",
+    "results/paper/trajectories/N40_symmetric_chi0.325_rep003.npz": "09067e40731ec83df5a8d7416ae6e174717fdf37ae45e09f3115d2e848ae6868",
+    "results/paper/trajectories/N40_symmetric_chi0.325_rep004.npz": "6ea6348976af285220a58db1b4d9961d637834c59037df272eabac1e1fa76440",
+    "results/paper/trajectories/N40_symmetric_chi0_rep000.npz": "78d49f83257d73af6d645502679c46eedb9015c35f822a494cbb8cc75394f95c",
+    "results/paper/trajectories/N40_symmetric_chi0_rep001.npz": "dd21896d1f78ae6b28f777da7e9220a3a63f3948f11fb4ab45c155dbe91d596c",
+    "results/paper/trajectories/N40_symmetric_chi0_rep002.npz": "d0fe59d68975d72cd0b6de679c1c8df1cf8d42e56dec99f3ea5b19720dba729b",
+    "results/paper/trajectories/N40_symmetric_chi0_rep003.npz": "5f5ea8608e6fb1de7b010cd8763b8d1ac94525d5a0c6e83b81c24f0926cc4b6f",
+    "results/paper/trajectories/N40_symmetric_chi0_rep004.npz": "c807b0a1acb3a2cf40dd7ea98779230a2b37cf4b62a0c35c9f6d17896ce38a02",
+    "results/paper/trajectories/N40_symmetric_chi1_rep000.npz": "9ff39ef510144ae268bd1790e5dfd34d94793fb41e0946580485d967bcb784ab",
+    "results/paper/trajectories/N40_symmetric_chi1_rep001.npz": "e2910ce4e0434668bbb88b146a862b51098ff3783b57c90ccd0b21cb320647ef",
+    "results/paper/trajectories/N40_symmetric_chi1_rep002.npz": "ae1c1d914c5825360e4fa4c02332ec7855d59d2998d5f32d4ff91ea399643999",
+    "results/paper/trajectories/N40_symmetric_chi1_rep003.npz": "3790e8b61739ce6f4c1d36b16bd70f8367cc50b3785185dfebf65d1e13d0f5ec",
+    "results/paper/trajectories/N40_symmetric_chi1_rep004.npz": "f90722720ec8fe307ec3b008d25326dc8303454610b24f6df378827bf2c2dd0f",
+    "results/paper/trajectories/N60_loss_biased_chi0.1_rep000.npz": "f01b8cc9968229c6408021d64c3693499a0635a0a7d798ffbe53fb87670371a0",
+    "results/paper/trajectories/N60_loss_biased_chi0.1_rep001.npz": "ca3a2a5daa2728e3c1d4a6c1fdbf392fbee254aa53c172504dd2423d4c37fca6",
+    "results/paper/trajectories/N60_loss_biased_chi0.1_rep002.npz": "aec216e93f22c8d2f96bbbdcc7ae33c3fc20bba18d19ad7c2e431e7cfb448aca",
+    "results/paper/trajectories/N60_loss_biased_chi0.1_rep003.npz": "0f88bbbd1665db2e33c0c68d3f11000ab6485bef4b182c50b14a982e4dbdf0db",
+    "results/paper/trajectories/N60_loss_biased_chi0.1_rep004.npz": "3c82c95aa4f92be6479224653427d489587ec998af3f2e46c196a0fa0f94fb07",
+    "results/paper/trajectories/N60_loss_biased_chi0.325_rep000.npz": "c4c850ab009d91c0837f282dde17a596eca882bfb527ac015ca5c4bbd60eda10",
+    "results/paper/trajectories/N60_loss_biased_chi0.325_rep001.npz": "56470c87002b5a62a8cff328dce73f676617a91616d479c3266e5850b0e5ea52",
+    "results/paper/trajectories/N60_loss_biased_chi0.325_rep002.npz": "97acd70b5dfce5f3a266fbf01bf4eb30a39ef7e500b7e4486ebaa24222148291",
+    "results/paper/trajectories/N60_loss_biased_chi0.325_rep003.npz": "1b208b0e7341aa74c6891f3dfb21340ca68181d1bf21e0c78a806844629a0b0b",
+    "results/paper/trajectories/N60_loss_biased_chi0.325_rep004.npz": "378f02a37a0cc62be1d38f05f9c34bdaf37145a5fd47e298790ec84145fe7849",
+    "results/paper/trajectories/N60_loss_biased_chi0_rep000.npz": "d32801aa1930fd07ab2243ca3a0d318915ae0ab2d506131bc6212008207b3c03",
+    "results/paper/trajectories/N60_loss_biased_chi0_rep001.npz": "7a0b3d6c01ce3789d619e1daa76fc66a64fe6aaa0a6392ef2e79d461e6f0b00e",
+    "results/paper/trajectories/N60_loss_biased_chi0_rep002.npz": "d5f943dcc293448414a84ba091898cb165eb4bd1e4b08f62a1f9748dc04f2b93",
+    "results/paper/trajectories/N60_loss_biased_chi0_rep003.npz": "b1dcf6dec6603644bced575cf696cc9526c28c2bd81fa54be53c46c15c53658e",
+    "results/paper/trajectories/N60_loss_biased_chi0_rep004.npz": "82b4e5dcdc2869559c68448e7491170ca96dd906c832be37cd2abddd2aef81f1",
+    "results/paper/trajectories/N60_loss_biased_chi1_rep000.npz": "8c11635c98ae81cc056b4440932f7be48691ac72a828e32b0d04f80a3360ea2f",
+    "results/paper/trajectories/N60_loss_biased_chi1_rep001.npz": "98e3d7106d8ae81ec1445848fcb8195454f2b12a0dced22d2a55d6078f4d2c95",
+    "results/paper/trajectories/N60_loss_biased_chi1_rep002.npz": "a3cbbbf74e369c8a4bc651dbd3438e3c6c6b2f5f2d49d2d29c4e080c2d9c74b0",
+    "results/paper/trajectories/N60_loss_biased_chi1_rep003.npz": "bea318e8e5b81aa13f1b3772f8189620da480b4394ed30c0ddf4b470ee5afbac",
+    "results/paper/trajectories/N60_loss_biased_chi1_rep004.npz": "c23f7c572910601acb8f1e237fde37cb4e03a8c4a63b47631304bf338d8e638b",
+    "results/paper/trajectories/N60_symmetric_chi0.1_rep000.npz": "056c20cf98938782149ac3d4f9e840dc6394bd510d843ee23eaf4b20780bd008",
+    "results/paper/trajectories/N60_symmetric_chi0.1_rep001.npz": "11e93d5245efd748f9f4f0da18ec57202a5609acd058d07beaf08a55178ced66",
+    "results/paper/trajectories/N60_symmetric_chi0.1_rep002.npz": "c25df150001374e35de311a7c28fb50097e526f19b67960ccb10ab6af49f93eb",
+    "results/paper/trajectories/N60_symmetric_chi0.1_rep003.npz": "3b56b98f97dbea454e214fc6064af190ced42608337d9395e36a5caf15781b35",
+    "results/paper/trajectories/N60_symmetric_chi0.1_rep004.npz": "9794a398145422e6d1d4088d16e51587b62370a513e02bed753e18654afde45b",
+    "results/paper/trajectories/N60_symmetric_chi0.325_rep000.npz": "e1d5ba482f89f3c9c877d0f0b9c36fe6a0393cfdb83dd5a976da440ede8feeab",
+    "results/paper/trajectories/N60_symmetric_chi0.325_rep001.npz": "50eda46fb0920c18f0ea83b9d0e333bb6c0442cc859714d396d7992d61b115fd",
+    "results/paper/trajectories/N60_symmetric_chi0.325_rep002.npz": "906cc3da46efa6d0ff1b7a5f9054da5b9a5e5627d2a07094faf285485dd76b17",
+    "results/paper/trajectories/N60_symmetric_chi0.325_rep003.npz": "672854b02e5d7bf2d7f98c2e31d4885dd1971b8da13280999fcf6c37364eca1d",
+    "results/paper/trajectories/N60_symmetric_chi0.325_rep004.npz": "a7fb50d1d403b46e2a82e338c3b50e2dda7e563166e4d80e17e9c676d633196e",
+    "results/paper/trajectories/N60_symmetric_chi0_rep000.npz": "ef523e966baf6c49dbd5e5073c2a2cefe28b1f2430b12abc52dd7aee82721b6b",
+    "results/paper/trajectories/N60_symmetric_chi0_rep001.npz": "65ea8c1abd38017bdd3292d70e2854ac55a6c69af283ea095de45109d06de100",
+    "results/paper/trajectories/N60_symmetric_chi0_rep002.npz": "c62430ca5a95ffa995d22165348cc570368017a85d96ffaec660a566c3efe1cb",
+    "results/paper/trajectories/N60_symmetric_chi0_rep003.npz": "ff17c5a4e4c7e11bee56f1fee9eecaa085ec82c38c62159355a2a224fed0794b",
+    "results/paper/trajectories/N60_symmetric_chi0_rep004.npz": "085f82b748faa239e8fc15eb4290bbe668699efa65b99f2002306d68250e84be",
+    "results/paper/trajectories/N60_symmetric_chi1_rep000.npz": "bbe70a7554e1d99300b68a5db952b0aa6233a564169049cba9de4f4dce93991e",
+    "results/paper/trajectories/N60_symmetric_chi1_rep001.npz": "e2b3c0b08a63b7a9bc093d568dceaadf8e9ffa7dc57737c474b10e156926ecb0",
+    "results/paper/trajectories/N60_symmetric_chi1_rep002.npz": "c91f8ce939e81de6eff5c2be1691395947a31636c7536dfbd79a635e7603b2b7",
+    "results/paper/trajectories/N60_symmetric_chi1_rep003.npz": "5e92842204b2dc50ad85463a34761fdab0403954ae3446120f6cab9e92311b54",
+    "results/paper/trajectories/N60_symmetric_chi1_rep004.npz": "79bebf720d173934725b84ef66e9a8fd6bb76bb07c174d3ae295fe9d68fa0482",
+    "results/paper/trajectories/N80_loss_biased_chi0.1_rep000.npz": "5ce3ca383aad1368c9d74cc988d8edb895170219a1d85785f5f32999ed55658b",
+    "results/paper/trajectories/N80_loss_biased_chi0.1_rep001.npz": "1f68068bfc4300bd64643d5b80d6c1d570161e2b9e3520c8b595518a03ca5807",
+    "results/paper/trajectories/N80_loss_biased_chi0.1_rep002.npz": "3164e7c87122d45f8184ec361e7ab0df1138e44bb420d563471af2e40d0bef96",
+    "results/paper/trajectories/N80_loss_biased_chi0.1_rep003.npz": "782a0b7120af1d16592156f47a40321ee7ec5ed592e6c6cff4989634b74563e1",
+    "results/paper/trajectories/N80_loss_biased_chi0.1_rep004.npz": "9543cf1468effe29804c781edca81225fda0bf61022699b27d9928aae11c1a05",
+    "results/paper/trajectories/N80_loss_biased_chi0.325_rep000.npz": "b4a526e1f62f6b0ebf9f7417b2bd70156e34f29d0707ec52330bf5eead573baf",
+    "results/paper/trajectories/N80_loss_biased_chi0.325_rep001.npz": "134012d800c03a6318cbc040d6db2f7ab43d192b4e7b7fa4efc9febf30ca3d88",
+    "results/paper/trajectories/N80_loss_biased_chi0.325_rep002.npz": "89cb26e5e37bff2a9b48901711c95ad39b57c1fcc604d2f8cb1b9005366f04ce",
+    "results/paper/trajectories/N80_loss_biased_chi0.325_rep003.npz": "1166ad428e7340b5040b94b6784e7716212feb43a6d5a75f8029bf11b5631efd",
+    "results/paper/trajectories/N80_loss_biased_chi0.325_rep004.npz": "0982339a6aaeca075f0a01229104e6ada5ff5ebe44b279c816b6b2e5f3086912",
+    "results/paper/trajectories/N80_loss_biased_chi0_rep000.npz": "526f3dffa7c9ff3b26faba28fe768f8cdebd8311374426f700179ca8b11202cd",
+    "results/paper/trajectories/N80_loss_biased_chi0_rep001.npz": "97fb0b9d24dfd62350bd5d68ef9fffb07c829d89c8eda12d15d4c7c22d68ca41",
+    "results/paper/trajectories/N80_loss_biased_chi0_rep002.npz": "95dacaf75428a5b1fe6e9be9a7c88a80a7a8aef98bef5a2a3f3f2f83bb1611e2",
+    "results/paper/trajectories/N80_loss_biased_chi0_rep003.npz": "8492e115bf5f41547312a074ce964748e4e12ee480b916b3223b0afc49d1a597",
+    "results/paper/trajectories/N80_loss_biased_chi0_rep004.npz": "9f680087feec1307a8481456632b559b14fb8afd21691a6c232fb14c62c5dfe0",
+    "results/paper/trajectories/N80_loss_biased_chi1_rep000.npz": "a41175005818e959f01548432c6e0bc1d8217e463180606db8d9cee0aa2b6097",
+    "results/paper/trajectories/N80_loss_biased_chi1_rep001.npz": "1863f15d7c23be1e47dc30e631899ebcf7f00c5fe112542a61873e0a49e1abb1",
+    "results/paper/trajectories/N80_loss_biased_chi1_rep002.npz": "a017fcca0f6b6b0c511052eb6da643234ae6099acffd5dbd947e121ddef78c69",
+    "results/paper/trajectories/N80_loss_biased_chi1_rep003.npz": "64f629b9c87afbeefdf7d116c29a3d4e7cf8d1dffbbc3f7a8560a10db07b1665",
+    "results/paper/trajectories/N80_loss_biased_chi1_rep004.npz": "ee18553b4320c5bfcd1b4960d629380402ba6926f85b3d17912a8aa161caf284",
+    "results/paper/trajectories/N80_symmetric_chi0.1_rep000.npz": "80830c1f65519fa8982d3e6a7a6df65a8dd7f3b4b668596c51d609244bc072a2",
+    "results/paper/trajectories/N80_symmetric_chi0.1_rep001.npz": "a2d4b4f9c452992dbb93b77ca824c96863d2976336d7a804a0707f0da2770eb5",
+    "results/paper/trajectories/N80_symmetric_chi0.1_rep002.npz": "517554a6d402bade7cf48d8b03c36380f571b7ba6a4de04fc67822fefe88a286",
+    "results/paper/trajectories/N80_symmetric_chi0.1_rep003.npz": "08874ba8d317ca7de7be718c137e0d8ab65eccdbed8031da54c89b0ffc01ba5b",
+    "results/paper/trajectories/N80_symmetric_chi0.1_rep004.npz": "ead5c9b2899e7102e5704bdb282e14cb4a8ffcc677ea066c3137b0146bcf113f",
+    "results/paper/trajectories/N80_symmetric_chi0.325_rep000.npz": "691d3bbbeaf7ddb3905bf999a50babb66296464b4368500b9fd231a83d9e0336",
+    "results/paper/trajectories/N80_symmetric_chi0.325_rep001.npz": "7e97bc75b764817e1bc0e53e33183054b3e14db769749ef71500a044d9d6f993",
+    "results/paper/trajectories/N80_symmetric_chi0.325_rep002.npz": "683d6cbf9c6ed9e076851fb1206ea638ee35d6994914a178d8d25a4bee6d8d9d",
+    "results/paper/trajectories/N80_symmetric_chi0.325_rep003.npz": "6cd1b672208dbacb038e9842d69e35bb47c33acc5ab827d5dc49be84f0d9019a",
+    "results/paper/trajectories/N80_symmetric_chi0.325_rep004.npz": "0e4b39df4ab8384b48ceca81a524a8346d8d6a1da465028284f140085dca5361",
+    "results/paper/trajectories/N80_symmetric_chi0_rep000.npz": "066d7907d91bd00e0ef5468769cfa1b8cd93ad83d1261eaf8fce23859d9206de",
+    "results/paper/trajectories/N80_symmetric_chi0_rep001.npz": "4943437f0e018c68b14c7be2a5ae1df9d40f85a76ddffb3339b99466298c6c9c",
+    "results/paper/trajectories/N80_symmetric_chi0_rep002.npz": "799c5f82898bfcc5bb2dfcacecf23a4fc94210e041efea8c133eb329cab37818",
+    "results/paper/trajectories/N80_symmetric_chi0_rep003.npz": "786ad2ec21a91bd628e4f76129908914b9e7a4f49602755984f42a826d060b99",
+    "results/paper/trajectories/N80_symmetric_chi0_rep004.npz": "f5a6c1a7e794d23ebdaa5179626c23928220e6826b91c11010dc67b6cba05e44",
+    "results/paper/trajectories/N80_symmetric_chi1_rep000.npz": "35eff183cc0e448c77bbb167007b72c508985cb766737247cc2d910f9cc89fa4",
+    "results/paper/trajectories/N80_symmetric_chi1_rep001.npz": "60e5b12a6977e76b95a8514cb081a0b724802f07fc7c1c81e8734656a19f9ab3",
+    "results/paper/trajectories/N80_symmetric_chi1_rep002.npz": "dee478de471179310e263a5427b156703fd281d12ea04037c31ccc3881bd323f",
+    "results/paper/trajectories/N80_symmetric_chi1_rep003.npz": "329b2823c7c990141946659330d24f5ca6b2e32a5a80ef336831ff33b21344f2",
+    "results/paper/trajectories/N80_symmetric_chi1_rep004.npz": "c281b89877ff32ea3f46d14b58581e0e4da5ca59c8fecd8ede87437e63c83fbd"
+  },
+  "readme_and_doc_links": "passed"
+}

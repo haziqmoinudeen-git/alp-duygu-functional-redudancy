@@ -1,0 +1,46 @@
+[
+  {
+    "N": 40,
+    "kernel": "loss_biased",
+    "chi": 0.0,
+    "substitutions": 3,
+    "baseline_seconds": 6.993387389011332,
+    "optimised_seconds": 2.7170637429953786,
+    "speedup": 2.573876820902846,
+    "peak_process_MiB": 105.49609375,
+    "identical_final_activity": true
+  },
+  {
+    "N": 120,
+    "kernel": "symmetric",
+    "chi": 1.0,
+    "substitutions": 3,
+    "baseline_seconds": 14.053203372008284,
+    "optimised_seconds": 3.1224907510040794,
+    "speedup": 4.50063891061624,
+    "peak_process_MiB": 106.328125,
+    "identical_final_activity": true
+  },
+  {
+    "N": 40,
+    "kernel": "symmetric",
+    "chi": 0.1,
+    "substitutions": 3,
+    "baseline_seconds": 7.369861957995454,
+    "optimised_seconds": 2.6673279910028214,
+    "speedup": 2.7630130163424877,
+    "peak_process_MiB": 106.5859375,
+    "identical_final_activity": true
+  },
+  {
+    "N": 120,
+    "kernel": "loss_biased",
+    "chi": 0.325,
+    "substitutions": 3,
+    "baseline_seconds": 16.102923675993225,
+    "optimised_seconds": 3.0530410020001,
+    "speedup": 5.274388278914014,
+    "peak_process_MiB": 106.5859375,
+    "identical_final_activity": true
+  }
+]

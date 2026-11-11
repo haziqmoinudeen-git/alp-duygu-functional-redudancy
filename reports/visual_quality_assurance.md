@@ -1,0 +1,9 @@
+# Visual quality assurance
+
+All nine assembled presentations were rendered and inspected through their raster previews: Figures 1–4, absolute and change Figure 5, and alternatives A–C. Canonical Figure 1/2 retain the manuscript's panel structures and exact requested filenames. New endpoint grids use shared corresponding y-limits. Dynamics use the recorded count or count/N, as labelled. Means have sample-SD error bars and faint replicate points; exposure bands are sample SD. No significance claim or embedded Methods paragraph is present.
+
+Inspection identified overlapping heatmap row titles and tick labels in the first export. Panel spacing and colourbar placement were corrected and the assembled figure reinspected. Scatter alternatives gained explicit encoding legends. All final previews have unclipped labels, distinct panel letters, clear legends, and readable mathematical notation.
+
+High-resolution PNGs are exported at 600 dpi and verified structurally, including pixel dimensions and DPI metadata. PDF/SVG companion files exist for every assembled figure. SVGs retain text and contain no embedded raster panels. The full high-resolution export and ordinary preview were checked for canonical and exposure presentations; the previews also serve as reduced-size readability checks. Main figures are laid out at 7.2-inch double-column width with 8-point base typography. The exposure grid is intended for double-column placement rather than single-column reduction. Small scatter alternatives suit a column. Arbitrary reduction of the 2×4 exposure grid to one column is not recommended.
+
+`check_release_artifacts.py` verifies exports, relative README/document links, and data/figure checksums. `artifact_manifest.json` traces the final artwork to source tables and trajectory files. Captions and sample-size details are in `docs/figure_captions.md`, outside the graphical canvas.
