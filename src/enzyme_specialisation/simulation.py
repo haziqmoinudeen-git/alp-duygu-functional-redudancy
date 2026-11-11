@@ -12,6 +12,7 @@ from .ancestry import build_initial_architecture
 from .catalogue import mutation_catalogue
 from .fitness import exact_s_for_events
 from .fixation import vectorized_fixation_probability
+from .io import scientific_fingerprint
 from .metrics import record_state
 from .parameters import (
     LOOP_STRUCTURAL_BUDGET,
@@ -181,6 +182,10 @@ def run_one_condition(cfg: RunConfig, checkpoint_path=None):
     if checkpoint_path is not None and Path(checkpoint_path).exists():
         with open(checkpoint_path, "rb") as handle:
             saved = pickle.load(handle)
+        if saved.get("scientific_fingerprint") != scientific_fingerprint():
+            raise ValueError(
+                "Checkpoint scientific source differs; preserve it and restart this trajectory"
+            )
         if saved["cfg"] != asdict(cfg):
             raise ValueError("Checkpoint configuration mismatch")
         (
@@ -198,6 +203,9 @@ def run_one_condition(cfg: RunConfig, checkpoint_path=None):
             fixed_neutralish,
             fixed_deleterious,
         ) = [saved[name] for name in checkpoint_names]
+        # Earlier checkpoint schemas have scalar counters but no counter time series.
+        if not all(key in history for key in counter_keys):
+            counter_keys = ()
         rng.bit_generator.state = saved["rng"]
         rebuild_function_to_loops()
     while time < cfg.max_generations:
@@ -279,7 +287,11 @@ def run_one_condition(cfg: RunConfig, checkpoint_path=None):
         if checkpoint_path is not None and fixed % 25 == 0:
             namespace = locals()
             saved = {name: namespace[name] for name in checkpoint_names}
-            saved.update(cfg=asdict(cfg), rng=rng.bit_generator.state)
+            saved.update(
+                cfg=asdict(cfg),
+                rng=rng.bit_generator.state,
+                scientific_fingerprint=scientific_fingerprint(),
+            )
             temporary = str(checkpoint_path) + ".tmp"
             with open(temporary, "wb") as handle:
                 pickle.dump(saved, handle, protocol=5)

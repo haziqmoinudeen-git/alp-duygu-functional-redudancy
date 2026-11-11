@@ -15,6 +15,7 @@ import numpy as np
 import pandas as pd
 
 from . import model
+from .io import scientific_fingerprint
 
 METRICS = {
     "mean_breadth": "mean_breadth",
@@ -83,6 +84,8 @@ def valid(p, c):
         with np.load(p, allow_pickle=False) as z:
             return (
                 json.loads(str(z["metadata"]))["config"] == asdict(c)
+                and json.loads(str(z["metadata"])).get("scientific_fingerprint")
+                == scientific_fingerprint()
                 and int(z["fixed"][-1]) == c.max_fixed
                 and np.isfinite(z["mean_breadth"]).all()
             )
@@ -101,6 +104,7 @@ def worker(cfg, output):
     status = "complete" if r["summary"]["fixed_substitutions"] == cfg.max_fixed else "incomplete"
     meta = {
         "config": asdict(cfg),
+        "scientific_fingerprint": scientific_fingerprint(),
         "summary": r["summary"],
         "runtime_seconds": seconds,
         "status": status,
@@ -135,6 +139,11 @@ def run(config, workers=None, limit=None):
             "architecture": platform.machine(),
             "cpu_count": os.cpu_count(),
             "git_commit": commit,
+            "scientific_fingerprint": scientific_fingerprint(),
+            "requested_workers": workers or config["workers"],
+            "effective_workers": min(
+                workers or config["workers"], max(1, (os.cpu_count() or 2) // 2), len(jobs)
+            ),
             "rng": "numpy.PCG64",
             "dependencies": {
                 n: importlib.metadata.version(n)
@@ -210,6 +219,8 @@ def aggregate(output, exposure=5):
                     "substitutions_per_protein": end / cfg.n_proteins,
                     "redundancy_r0": model.redundancy_from_n(cfg.n_proteins),
                     "M": model.M_FUNCTIONS,
+                    "eta": model.eta_from_chi(cfg.chi),
+                    "stop_reason": "recorded fixed-substitution endpoint",
                     "runtime_seconds": meta["runtime_seconds"],
                     "completion_status": "complete",
                 }

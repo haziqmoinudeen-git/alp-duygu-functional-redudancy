@@ -62,6 +62,16 @@ for experiment in ["equal_total_250", "equal_exposure_c5"]:
             == table.fixed_substitutions
         ).all()
         assert table.counter_source.notna().all()
+        if experiment == "equal_total_250":
+            keys = ["n_proteins", "mutation_kernel", "chi", "replicate"]
+            both = table.merge(ref, on=keys, suffixes=("_new", "_reference"), validate="one_to_one")
+            shared = set(table.columns) & set(ref.columns)
+            for name in shared - set(keys) - {"stop_reason"}:
+                if pd.api.types.is_numeric_dtype(table[name]):
+                    np.testing.assert_allclose(
+                        both[name + "_new"], both[name + "_reference"], rtol=1e-11, atol=1e-12
+                    )
+
 result = {
     "complete": len(complete),
     "expected": len(jobs),
