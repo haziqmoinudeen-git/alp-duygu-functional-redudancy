@@ -7,6 +7,7 @@ import os
 import platform
 import subprocess
 import time
+import zipfile
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import asdict, replace
 from pathlib import Path
@@ -81,16 +82,37 @@ def atomic_json(p, v):
 
 
 def valid(p, c):
+    """Accept only complete, finite histories from the current scientific source."""
     try:
         with np.load(p, allow_pickle=False) as z:
-            return (
-                json.loads(str(z["metadata"]))["config"] == asdict(c)
-                and json.loads(str(z["metadata"])).get("scientific_fingerprint")
-                == scientific_fingerprint()
-                and int(z["fixed"][-1]) == c.max_fixed
-                and np.isfinite(z["mean_breadth"]).all()
+            meta = json.loads(str(z["metadata"]))
+            if (
+                meta["config"] != asdict(c)
+                or meta.get("scientific_fingerprint") != scientific_fingerprint()
+            ):
+                return False
+            if meta["status"] != "complete" or not np.array_equal(
+                z["fixed"], np.arange(c.max_fixed + 1)
+            ):
+                return False
+            for key in [
+                *METRICS.values(),
+                "time",
+                "mean_nonzero_functions",
+                "mean_active_functions",
+                "mean_latent_loop_support",
+            ]:
+                if len(z[key]) != c.max_fixed + 1 or not np.isfinite(z[key]).all():
+                    return False
+            activity = z["A_final"]
+            return bool(
+                activity.shape == (c.n_proteins, model.M_FUNCTIONS)
+                and np.isfinite(activity).all()
+                and np.all(activity >= 0)
+                and np.all(activity <= model.MAX_ACTIVITY + 1e-15)
+                and np.all(np.diff(z["time"]) >= 0)
             )
-    except (OSError, ValueError, KeyError):
+    except (OSError, ValueError, KeyError, IndexError, EOFError, zipfile.BadZipFile):
         return False
 
 
@@ -135,6 +157,11 @@ def run(config, workers=None, limit=None):
         output / "manifest.json",
         {
             "configuration": config,
+            "model_defaults": {
+                name: (value.tolist() if isinstance(value, np.ndarray) else value)
+                for name, value in vars(model).items()
+                if name.isupper()
+            },
             "python": platform.python_version(),
             "platform": platform.platform(),
             "architecture": platform.machine(),
